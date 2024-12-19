@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Procedure | LoRaWAN Worker Tracking</title>
+    
+    
+    <script type="module" crossorigin src="/lorawan_bolt/assets/main-713dc27c.js"></script>
+    <link rel="stylesheet" href="/lorawan_bolt/assets/main-c46d0688.css">
+  </head>
+  <body class="bg-gray-50">
+    <header class="bg-primary text-white py-6">
+      <div class="container mx-auto px-4">
+        <h1 class="text-2xl font-bold">Evaluation Procedure</h1>
+      </div>
+    </header>
+    
+    <main class="container mx-auto px-4 py-8">
+      <section class="bg-white shadow-md rounded-lg p-8">
+        <div class="mb-4">
+          <a href="/lorawan_bolt/" class="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark transition-colors">
+            ← Back to Home
+          </a>
+        </div>
+        <h2 class="text-3xl font-bold mb-6 text-primary">Evaluation Procedure</h2>
+        
+        <div class="prose max-w-full">
+          <h3 class="text-2xl font-semibold mb-4">Evaluation Equipment</h3>
+          <ul class="list-disc pl-6">
+            <li><strong>End-user devices:</strong> Dragino Tracker D LoRaWAN GPS trackers 1</li>
+            <li><strong>Gateway:</strong> Dragino Outdoor Gateway DL0S86 (AS923) with 4G EC25 2</li>
+          </ul>
+          <h4 class="text-xl font-semibold mt-4 mb-2">Tools/Equipment:</h4>
+          <ul class="list-disc pl-6">
+            <li>Laptop with LoRaWAN network server and mapping software (e.g., The Things Network with ChirpStack, with mapping software like QGIS)</li>
+            <li>High-accuracy GPS device (e.g., Garmin GPSMAP 66i) or detailed map of the estate</li>
+            <li>Cellular signal strength meter (e.g., RF Explorer Handheld Spectrum Analyzer) or mobile phone with field test mode</li>
+            <li>Measuring tape or laser distance measuring equipment (e.g., Bosch GLM 50 C)</li>
+            <li>Tools for mounting the gateway (e.g., ladder, mounting brackets, appropriate tools for the chosen mounting surface)</li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Test Location</h3>
+          <p>The evaluation will be conducted in <strong>one</strong> oil palm estate in Sabah, Malaysia, selected by the tester from the following list:</p>
+          <ol class="list-decimal pl-6">
+            <li>Mawang</li>
+            <li>Sg Tiagau</li>
+            <li>Bukit Tuok</li>
+            <li>Kumani</li>
+            <li>Kapilit</li>
+            <li>Sg Indit</li>
+            <li>Banita</li>
+            <li>Cenderamata</li>
+            <li>Dumpas</li>
+          </ol>
+          <p><strong>Selected Estate:</strong></p>
+          <p>(Enter the name of the selected estate here)</p>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Evaluation Procedure</h3>
+          <p>This procedure outlines a series of tests to evaluate the performance of the LoRaWAN-based worker tracking system. Each test includes a form to record observations and measurements.</p>
+
+          <h4 class="text-xl font-semibold mt-4 mb-2">Test 1: LoRaWAN Range and Coverage</h4>
+          <p><strong>Objective:</strong> To determine the effective range of the LoRaWAN network in the oil palm plantation environment.</p>
+          <p><strong>Procedure:</strong></p>
+          <ol class="list-decimal pl-6">
+            <li>Deploy the Dragino DL0S86 gateway at a central location within the selected estate. Record the gateway's GPS coordinates.</li>
+            <li>Starting with the tracker device near the gateway, record the Received Signal Strength Indicator (RSSI) and any packet loss.</li>
+            <li>Place Dragino Tracker D devices at various distances from the gateway (e.g., 100m, 500m, 1km, 2km, 5km) in different directions. Record the GPS coordinates of each tracker.</li>
+            <li>Vary the terrain and vegetation density between the gateway and tracker devices (e.g., open areas, dense foliage, near buildings, different elevations).</li>
+            <li>For each location, record the signal strength (RSSI) and packet loss. Note the Spreading Factor (SF) used for communication.</li>
+            <li>Observe and record the time it takes for data to be transmitted from the tracker to the gateway (latency).</li>
+          </ol>
+
+          <h5 class="text-lg font-semibold mt-4 mb-2">Form (Part 1):</h5>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200 mt-2">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border p-2">Test Number</th>
+                  <th class="border p-2">Tracker ID</th>
+                  <th class="border p-2">Distance to Gateway (m)</th>
+                  <th class="border p-2">Tracker GPS Coordinates</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2">1.1</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">1.2</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">1.3</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">1.4</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">1.5</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h5 class="text-lg font-semibold mt-4 mb-2">Form (Part 2):</h5>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200 mt-2">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border p-2">Test Number</th>
+                  <th class="border p-2">RSSI (dBm)</th>
+                  <th class="border p-2">SF</th>
+                  <th class="border p-2">Packet Loss (%)</th>
+                  <th class="border p-2">Latency (s)</th>
+                  <th class="border p-2">Notes (Terrain, Obstructions, etc.)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2">1.1</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">1.2</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">1.3</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">1.4</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">1.5</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">1.6</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">1.7</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">1.8</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">1.9</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">1.10</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="text-xl font-semibold mt-6 mb-2">Test 2: GPS Performance Under Canopy</h4>
+          <p><strong>Objective:</strong> To evaluate the accuracy and reliability of GPS positioning under the dense canopy of oil palm trees.</p>
+          <p><strong>Procedure:</strong></p>
+          <ol class="list-decimal pl-6">
+            <li>Place Dragino Tracker D devices at different locations under the canopy with varying densities (e.g., dense foliage, moderate foliage, edge of the canopy).</li>
+            <li>Record the GPS coordinates obtained by the tracker devices.</li>
+            <li>Compare the recorded coordinates with the actual coordinates obtained using a high-accuracy GPS device or a detailed map.</li>
+            <li>Calculate the positional error (distance between recorded and actual coordinates) and analyze the variations in accuracy based on canopy density.</li>
+            <li>Repeat the test at different times of the day to assess the impact of satellite availability.</li>
+          </ol>
+
+          <h5 class="text-lg font-semibold mt-4 mb-2">Form (Part 1):</h5>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200 mt-2">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border p-2">Test Number</th>
+                  <th class="border p-2">Tracker ID</th>
+                  <th class="border p-2">Canopy Density</th>
+                  <th class="border p-2">Recorded Coordinates</th>
+                  <th class="border p-2">Actual Coordinates</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2">2.1</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">2.2</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">2.3</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">2.4</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">2.5</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h5 class="text-lg font-semibold mt-4 mb-2">Form (Part 2):</h5>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200 mt-2">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border p-2">Test Number</th>
+                  <th class="border p-2">Positional Error (m)</th>
+                  <th class="border p-2">Time of Day</th>
+                  <th class="border p-2">Notes (e.g., weather conditions)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2">2.1</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">2.2</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">2.3</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">2.4</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">2.5</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">2.6</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">2.7</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">2.8</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">2.9</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">2.10</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="text-xl font-semibold mt-6 mb-2">Test 3: Device Performance and Battery Life</h4>
+          <p><strong>Objective:</strong> To assess the performance of the Dragino Tracker D in terms of data transmission, battery life, and overall functionality.</p>
+          <p><strong>Procedure:</strong></p>
+          <ol class="list-decimal pl-6">
+            <li>Fully charge the battery of each Dragino Tracker D device.</li>
+            <li>Configure the Dragino Tracker D to transmit data at different intervals (e.g., every 1 minute, 5 minutes, 15 minutes).</li>
+            <li>For each interval, monitor and record the data transmission rate and packet loss.</li>
+            <li>Record the time taken for the battery to deplete under each data transmission interval.</li>
+            <li>Observe and document any issues related to device functionality, such as GPS signal acquisition, data logging, or sensor readings.</li>
+          </ol>
+
+          <h5 class="text-lg font-semibold mt-4 mb-2">Form:</h5>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200 mt-2">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border p-2">Test Number</th>
+                  <th class="border p-2">Tracker ID</th>
+                  <th class="border p-2">Data Transmission Interval (min)</th>
+                  <th class="border p-2">Data Transmission Rate</th>
+                  <th class="border p-2">Packet Loss (%)</th>
+                  <th class="border p-2">Battery Life (hours)</th>
+                  <th class="border p-2">Functional Issues</th>
+                  <th class="border p-2">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2">3.1</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">3.2</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">3.3</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="text-xl font-semibold mt-6 mb-2">Test 4: Cellular Signal Strength</h4>
+          <p><strong>Objective:</strong> To measure cellular signal strength across the selected estate to identify optimal gateway placement for reliable backhaul connectivity.</p>
+          <p><strong>Procedure:</strong></p>
+          <ol class="list-decimal pl-6">
+            <li>Use a cellular signal strength meter or a mobile phone with a field test mode to measure signal strength (RSRP) at various locations within the estate.</li>
+            <li>Record the signal strength (RSRP in dBm), network provider, and GPS coordinates for each location.</li>
+            <li>Identify areas with weak or no cellular coverage.</li>
+            <li>Analyze the data to determine the best locations for gateway deployment to ensure reliable cellular backhaul.</li>
+          </ol>
+
+          <h5 class="text-lg font-semibold mt-4 mb-2">Form (Part 1):</h5>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200 mt-2">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border p-2">Test Number</th>
+                  <th class="border p-2">Location Coordinates</th>
+                  <th class="border p-2">CelcomDigi</th>
+                  <th class="border p-2">Maxis</th>
+                  <th class="border p-2">U Mobile</th>
+                  <th class="border p-2">unifi</th>
+                  <th class="border p-2">Yes 4G</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2">4.1</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">4.2</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">4.3</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">4.4</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">4.5</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h5 class="text-lg font-semibold mt-4 mb-2">Form (Part 2):</h5>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200 mt-2">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border p-2">Test Number</th>
+                  <th class="border p-2">RSRP (dBm)</th>
+                  <th class="border p-2">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2">4.1</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">4.2</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">4.3</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">4.4</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">4.5</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">4.6</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">4.7</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">4.8</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">4.9</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">4.10</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Data Analysis and Reporting</h3>
+          <p>After completing the evaluation tests, analyze the collected data to assess the performance of the LoRaWAN-based worker tracking system. Consider the following factors:</p>
+          <ul class="list-disc pl-6">
+            <li><strong>LoRaWAN coverage and signal strength:</strong> Evaluate the network's ability to provide reliable communication across the estate, considering terrain and vegetation. Analyze the impact of distance, Spreading Factor, and obstacles on signal quality and packet loss.</li>
+            <li><strong>GPS accuracy under canopy:</strong> Determine the level of accuracy achievable for worker location tracking under the oil palm canopy. Analyze the variations in accuracy based on canopy density and time of day.</li>
+            <li><strong>Device performance and battery life:</strong> Assess the tracker's functionality, data transmission capabilities, and battery life in the field. Analyze the relationship between data transmission intervals and battery life.</li>
+            <li><strong>Cellular signal strength:</strong> Identify areas with limited cellular coverage and determine the optimal gateway placement for reliable backhaul connectivity. Evaluate the signal strength of different cellular providers to identify the best option for the estate.</li>
+          </ul>
+          <p>Compile the findings into a comprehensive report that includes:</p>
+          <ul class="list-disc pl-6">
+            <li><strong>Executive summary:</strong> A concise overview of the evaluation objectives, methodology, and key findings.</li>
+            <li><strong>Detailed test results:</strong> Present the data collected from each test, including tables, charts, and maps (if available).</li>
+            <li><strong>Analysis and discussion:</strong> Interpret the results, discuss the implications for system design and deployment, and address any limitations or challenges encountered.</li>
+            <li><strong>Recommendations:</strong> Provide recommendations for optimizing network deployment, selecting appropriate equipment, and mitigating potential challenges.</li>
+            <li><strong>Conclusion:</strong> Summarize the overall feasibility and effectiveness of the LoRaWAN-based worker tracking system for Sabah Softwoods Berhad.</li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Compromises and Limitations</h3>
+          <p>Acknowledge the compromises and limitations associated with using the alternative evaluation equipment:</p>
+          <ul class="list-disc pl-6">
+            <li><strong>GPS Accuracy:</strong> The HKT GT-100 may offer better accuracy due to its dual-frequency band reception and anti-jamming capabilities.</li>
+            <li><strong>Feature Set:</strong> The Dragino Tracker D includes additional features that may affect battery life and performance comparisons.</li>
+            <li><strong>Ruggedness:</strong> The Dragino devices may have different ruggedness specifications compared to the proposed equipment.</li>
+            <li><strong>Power Source:</strong> The Dragino gateway relies on a DC power supply, while the proposed gateway is solar-powered.</li>
+          </ul>
+          <p>It's crucial to consider these limitations when interpreting the evaluation results and extrapolating them to the proposed system.</p>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Scope of Evaluation</h3>
+          <p>This evaluation plan focuses on assessing the feasibility of the LoRaWAN-based worker tracking system in terms of network coverage, GPS performance, and device functionality. Integration with the end-user dashboard and application server is beyond the scope of this evaluation.</p>
+
+          <h4 class="text-xl font-semibold mt-6 mb-2">Works cited</h4>
+          <ol class="list-decimal pl-6 text-sm">
+            <li>TrackerD -- LoRaWAN Tracker User Manual - Dragino Wiki, accessed on December 14, 2024, <a href="https://wiki.dragino.com/xwiki/bin/view/Main/User%20Manual%20for%20LoRaWAN%20End%20Nodes/TrackerD/" class="text-secondary hover:underline">https://wiki.dragino.com/xwiki/bin/view/Main/User%20Manual%20for%20LoRaWAN%20End%20Nodes/TrackerD/</a></li>
+            <li>DLOS8 Outdoor LoRaWAN Gateway - Dragino, accessed on December 15, 2024, <a href="https://www.dragino.com/products/lora-lorawan-gateway/item/160-dlos8.html" class="text-secondary hover:underline">https://www.dragino.com/products/lora-lorawan-gateway/item/160-dlos8.html</a></li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-primary text-white py-6 mt-8">
+      <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2024 adyaakob Worker Tracking Project. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+  </html>
