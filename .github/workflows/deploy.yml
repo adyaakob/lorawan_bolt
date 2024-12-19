@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
+      - name: Fix paths
+        run: node fix_paths.js
+      
       - name: Run external reference update script
         run: |
           chmod +x update_external_references.sh
