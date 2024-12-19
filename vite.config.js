@@ -19,7 +19,14 @@ export default defineConfig({
         evaluation_report: resolve(__dirname, 'pages/evaluation_report.html'),
         pre_site_visit_checklist: resolve(__dirname, 'pages/pre_site_visit_checklist.html'),
         map: resolve(__dirname, 'pages/map.html')
-      }
+      },
+      external: [
+        'https://cdn.jsdelivr.net/npm/chart.js',
+        'https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0',
+        'https://cdn.jsdelivr.net/npm/ol@v8.1.0/dist/ol.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+        'https://cdn.jsdelivr.net/npm/ol@v8.1.0/ol.css'
+      ]
     },
     outDir: 'dist',
     assetsDir: 'assets'
