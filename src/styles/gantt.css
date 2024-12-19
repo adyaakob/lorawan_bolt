@@ -1,0 +1,107 @@
+/* Gantt Chart Styles */
+.wrapper {
+  max-width: 1200px;
+  min-width: 700px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.gantt {
+  display: grid;
+  border: 0;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 75px 125px -57px rgba(126, 143, 148, 0.3);
+}
+
+.gantt__row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  background-color: #fff;
+}
+
+.gantt__row:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+
+.gantt__row:nth-child(odd) .gantt__row-first {
+  background-color: #f5f5f5;
+}
+
+.gantt__row--months {
+  color: #fff;
+  background-color: #0a3444 !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  grid-template-columns: 150px repeat(8, 1fr);
+}
+
+.gantt__row--months .gantt__row-first {
+  border-top: 0 !important;
+  background-color: #0a3444 !important;
+}
+
+.gantt__row--months span {
+  text-align: center;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  padding: 7px 0;
+  width: 100%;
+}
+
+.gantt__row--lines {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  grid-template-columns: 150px repeat(8, 1fr);
+  z-index: 1;
+}
+
+.gantt__row--lines span {
+  display: block;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.gantt__row-first {
+  background-color: #fff;
+  border-width: 1px 0 0 0;
+  border-color: rgba(0, 0, 0, 0.1);
+  border-style: solid;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.gantt__row-bars {
+  list-style: none;
+  display: grid;
+  padding: 2px 0;
+  margin: 0;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 2px 0;
+  border-top: 1px solid rgba(221, 221, 221, 0.8);
+}
+
+.gantt__row-bars li {
+  font-weight: 500;
+  text-align: left;
+  font-size: 14px;
+  min-height: 15px;
+  padding: 5px 12px;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: 20px;
+  opacity: 0.9;
+}
+
+.gantt__row-bars li:hover {
+  opacity: 1;
+}

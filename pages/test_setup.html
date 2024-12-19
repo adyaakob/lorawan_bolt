@@ -1,0 +1,275 @@
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoRaWAN Field Test Setups</title>
+    <link href="/src/styles/main.css" rel="stylesheet">
+    <script type="module" src="/src/js/main.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body class="bg-gray-50 font-sans dark:bg-gray-800 dark:text-white">
+    <div id="app">
+      <header class="bg-primary text-white py-6 dark:bg-gray-700">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+          <h1 class="text-2xl font-bold">LoRaWAN Field Test Setups</h1>
+          <nav class="flex items-center">
+            <ul class="flex space-x-4 mr-4">
+              <li><a href="/" class="hover:text-gray-200">Home</a></li>
+              <li class="relative group">
+                <span class="cursor-pointer hover:text-gray-200">Documentation</span>
+                <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48 dark:bg-gray-600 dark:text-white">
+                  <li><a href="/pages/evaluation_plan.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Evaluation Plan</a></li>
+                  <li><a href="/pages/evaluation_procedure.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Evaluation Procedure</a></li>
+                  <li><a href="/pages/pre_site_visit_checklist.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Pre-Site Visit Checklist</a></li>
+                </ul>
+              </li>
+              <li><a href="/pages/evaluation_report.html" class="hover:text-gray-200">Evaluation Report</a></li>
+            </ul>
+            <button id="themeToggle" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-semibold py-2 px-4 rounded">
+              Light Theme
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <main class="container mx-auto px-4 py-8">
+        <section class="bg-white shadow-lg rounded-xl p-8 dark:bg-gray-800">
+          <div class="mb-4">
+            <a href="../index.html" class="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark transition-colors">
+              ← Back to Home
+            </a>
+          </div>
+          <h1 class="text-5xl font-bold mb-8 text-primary dark:text-white border-b pb-4" style="font-size: 2rem;">LoRaWAN Field Test Setups</h1>
+          
+          <div class="mb-8 text-lg text-gray-700 dark:text-gray-300">
+            <p class="leading-relaxed">This report details the test setups and procedures for evaluating the LoRaWAN-based worker tracking system in a field environment, specifically within an oil palm plantation in Sabah, Malaysia. This evaluation will utilize three Dragino Tracker D end devices and one Dragino DL0S86 gateway.</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl shadow-md dark:from-gray-700 dark:to-gray-600">
+              <h2 class="text-2xl font-bold mb-6 text-primary dark:text-white flex items-center">
+                <span class="material-icons text-primary">bullseye</span>
+                Project Objectives
+              </h2>
+              <ul class="space-y-6">
+                <li class="flex items-start bg-white/50 p-4 rounded-lg dark:bg-gray-800/50">
+                  <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    <span class="material-icons text-primary">cell_tower</span>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-primary dark:text-white mb-2">Network Coverage Assessment</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">Determine how effectively LoRaWAN signals can penetrate dense oil palm tree foliage and reach tracker devices across different plantation areas. This assessment is crucial for understanding signal propagation characteristics in the challenging plantation environment.</p>
+                  </div>
+                </li>
+                <li class="flex items-start bg-white/50 p-4 rounded-lg dark:bg-gray-800/50">
+                  <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    <span class="material-icons text-primary">satellite_alt</span>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-primary dark:text-white mb-2">GPS Accuracy Evaluation</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">Assess the precision of GPS location tracking under dense canopy conditions where satellite signals may be obstructed. This evaluation is essential for ensuring reliable worker position tracking throughout the plantation.</p>
+                  </div>
+                </li>
+                <li class="flex items-start bg-white/50 p-4 rounded-lg dark:bg-gray-800/50">
+                  <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    <span class="material-icons text-primary">memory</span>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-primary dark:text-white mb-2">Device Performance Testing</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">Evaluate the Dragino Tracker D devices' overall functionality, including data transmission rates, communication latency (time for data to travel from device to gateway), and battery life under typical plantation usage conditions.</p>
+                  </div>
+                </li>
+                <li class="flex items-start bg-white/50 p-4 rounded-lg dark:bg-gray-800/50">
+                  <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    <span class="material-icons text-primary">signal_cellular_alt</span>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-primary dark:text-white mb-2">Backhaul Connectivity Analysis</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">Measure and map cellular signal strength across the plantation to identify optimal gateway placement locations for reliable internet connectivity and data backhaul. This is critical for ensuring consistent data transmission to central monitoring systems.</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="mt-6 p-4 bg-white/50 rounded-lg dark:bg-gray-800/50">
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed italic">These objectives are crucial for determining the feasibility and effectiveness of the LoRaWAN-based worker tracking system in the specific context of oil palm plantations. The evaluation results will provide valuable data to optimize network deployment, assess device suitability, and identify potential challenges for full-scale implementation.</p>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl shadow-md dark:from-gray-700 dark:to-gray-600">
+              <h2 class="text-2xl font-bold mb-6 text-primary dark:text-white text-center">
+                Equipment Setup
+              </h2>
+              <div class="space-y-6">
+                <div class="flex items-start bg-white/50 p-6 rounded-lg dark:bg-gray-800/50">
+                  <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    <span class="material-icons text-primary">router</span>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-primary dark:text-white">1x Dragino DL0S86 Gateway</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Central communication hub</p>
+                    <ul class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                      <li>• LoRaWAN protocol support</li>
+                      <li>• Built-in cellular modem</li>
+                      <li>• Outdoor-rated enclosure</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="flex items-start bg-white/50 p-6 rounded-lg dark:bg-gray-800/50">
+                  <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    <span class="material-icons text-primary">gps_fixed</span>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-primary dark:text-white">3x Dragino Tracker D Devices</h3>
+                    <p class="text-gray-600 dark:text-gray-400">End-node tracking devices</p>
+                    <ul class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                      <li>• GPS positioning</li>
+                      <li>• Long-range communication</li>
+                      <li>• Battery-powered operation</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="flex items-start bg-white/50 p-6 rounded-lg dark:bg-gray-800/50">
+                  <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    <span class="material-icons text-primary">computer</span>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-primary dark:text-white">1x Monitoring Laptop</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Data collection and analysis</p>
+                    <ul class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                      <li>• Real-time data monitoring</li>
+                      <li>• Signal strength analysis</li>
+                      <li>• Performance logging</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-8">
+            <div class="bg-gray-50 p-6 rounded-lg dark:bg-gray-600">
+              <h3 class="text-2xl font-semibold mb-4 text-primary dark:text-white">Test Setup 1: Line-of-Sight Testing</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-semibold mb-2 dark:text-white">Objective</h4>
+                  <p class="text-gray-700 dark:text-gray-300">Evaluate LoRaWAN performance in an open area with clear line of sight between gateway and end devices.</p>
+                  <h4 class="font-semibold mt-4 mb-2 dark:text-white">Procedure</h4>
+                  <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300">
+                    <li>Deploy gateway in central, elevated location</li>
+                    <li>Position trackers at 100m, 500m, and 1km</li>
+                    <li>Ensure minimal obstructions</li>
+                    <li>Record RSSI, SNR, and packet loss</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg dark:bg-gray-700">
+                  <pre class="text-sm text-gray-600 dark:text-gray-300 whitespace-pre-wrap">
+    (Engineer 1) Tracker D (100m)
+           /
+          /     
+         /   Gateway (Mid) --- [💻 Laptop]
+    (Engineer 3) Tracker D (500m) --- 
+         \     
+          \
+           \
+    (Engineer 2) Tracker D (1km)
+                  </pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg dark:bg-gray-600">
+              <h3 class="text-2xl font-semibold mb-4 text-primary dark:text-white">Test Setup 2: Under-Canopy Testing</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-semibold mb-2 dark:text-white">Objective</h4>
+                  <p class="text-gray-700 dark:text-gray-300">Assess impact of dense foliage on signal strength, range, and GPS accuracy.</p>
+                  <h4 class="font-semibold mt-4 mb-2 dark:text-white">Procedure</h4>
+                  <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300">
+                    <li>Deploy gateway at dense oil palm area edge</li>
+                    <li>Place trackers under varying canopy densities</li>
+                    <li>Record signal metrics and GPS accuracy</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg dark:bg-gray-700">
+                  <pre class="text-sm text-gray-600 dark:text-gray-300 whitespace-pre-wrap">
+    (Dense Foliage) Tracker D
+           /
+          /    🌴🌴🌴
+         /
+    (Moderate) Tracker D --- Gateway --- [💻 Laptop]
+         \    🌴
+          \
+           \
+    (Edge) Tracker D
+                  </pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg dark:bg-gray-600">
+              <h3 class="text-2xl font-semibold mb-4 text-primary dark:text-white">Test Setup 3: Varying Distance and Elevation</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-semibold mb-2 dark:text-white">Objective</h4>
+                  <p class="text-gray-700 dark:text-gray-300">Test communication range and impact of elevation changes on signal propagation.</p>
+                  <h4 class="font-semibold mt-4 mb-2 dark:text-white">Procedure</h4>
+                  <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300">
+                    <li>Deploy gateway near elevation changes</li>
+                    <li>Position trackers at varying heights</li>
+                    <li>Record comprehensive signal metrics</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg dark:bg-gray-700">
+                  <pre class="text-sm text-gray-600 dark:text-gray-300 whitespace-pre-wrap">
+    (High) Tracker D ⛰️
+           /
+          /     
+         /   Gateway --- [💻 Laptop]
+    (Low) Tracker D 
+         \     
+          \
+           \
+    (Low) Tracker D
+                  </pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="bg-gray-50 p-6 rounded-lg dark:bg-gray-600">
+                <h3 class="text-2xl font-semibold mb-4 text-primary dark:text-white">Test Setup 4: Mobility Testing</h3>
+                <h4 class="font-semibold mb-2 dark:text-white">Objective</h4>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">Simulate worker movement through plantation areas.</p>
+                <h4 class="font-semibold mb-2 dark:text-white">Procedure</h4>
+                <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300">
+                  <li>Engineers carry trackers while moving</li>
+                  <li>Cover various terrain types</li>
+                  <li>Monitor real-time tracking quality</li>
+                </ul>
+              </div>
+
+              <div class="bg-gray-50 p-6 rounded-lg dark:bg-gray-600">
+                <h3 class="text-2xl font-semibold mb-4 text-primary dark:text-white">Test Setup 5: Data Rate Testing</h3>
+                <h4 class="font-semibold mb-2 dark:text-white">Objective</h4>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">Evaluate data rate and spreading factor impacts.</p>
+                <h4 class="font-semibold mb-2 dark:text-white">Procedure</h4>
+                <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300">
+                  <li>Test different spreading factors (SF7-SF12)</li>
+                  <li>Measure battery consumption</li>
+                  <li>Analyze performance trade-offs</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="bg-primary text-white py-6 mt-8 dark:bg-gray-700">
+        <div class="container mx-auto px-4 text-center">
+          <p> 2024 adyaakob LoRaWAN Worker Tracking Project. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

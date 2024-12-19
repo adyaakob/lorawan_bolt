@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+  <html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoRaWAN Worker Tracking System</title>
+    <link href="./src/styles/main.css" rel="stylesheet">
+    <script type="module" src="./src/js/main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  </head>
+  <body class="bg-gray-50 font-sans dark:bg-gray-800 dark:text-white">
+    <div id="app">
+      <header class="bg-primary text-white py-6 dark:bg-gray-700">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+          <h1 class="text-2xl font-bold">LoRaWAN Worker Tracking Documentation</h1>
+          <nav class="flex items-center">
+            <ul class="flex space-x-4 mr-4">
+              <li><a href="./" class="hover:text-gray-200">Home</a></li>
+              <li class="relative group">
+                <span class="cursor-pointer hover:text-gray-200">Documentation</span>
+                <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48 dark:bg-gray-600 dark:text-white">
+                  <li><a href="./pages/evaluation_plan.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Evaluation Plan</a></li>
+                  <li><a href="./pages/evaluation_procedure.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Evaluation Procedure</a></li>
+                  <li><a href="./pages/pre_site_visit_checklist.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Pre-Site Visit Checklist</a></li>
+                </ul>
+              </li>
+              <li class="relative group">
+                <span class="cursor-pointer hover:text-gray-200">Project Management</span>
+                <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48 dark:bg-gray-600 dark:text-white">
+                  <li><a href="./pages/project_cost_estimation.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Cost Estimation</a></li>
+                  <li><a href="./pages/project_implementation_timeline.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Implementation Timeline</a></li>
+                </ul>
+              </li>
+              <li class="relative group">
+                <span class="cursor-pointer hover:text-gray-200">Supplementary Docs</span>
+                <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48 dark:bg-gray-600 dark:text-white">
+                  <li><a href="./pages/evaluation_checklist.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Evaluation Checklist</a></li>
+                  <li><a href="./pages/team_members.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Evaluation Team</a></li>
+                  <li><a href="./pages/test_setup.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Test Setup</a></li>
+                </ul>
+              </li>
+              <li class="relative group">
+                <span class="cursor-pointer hover:text-gray-200">Site Details</span>
+                <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48 dark:bg-gray-600 dark:text-white">
+                  <li><a href="./pages/estate_areas.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Estate Areas</a></li>
+                  <li><a href="./pages/map.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Project Map</a></li>
+                </ul>
+              </li>
+              <li><a href="./pages/evaluation_report.html" class="hover:text-gray-200 mr-8">Evaluation Report</a></li>
+            </ul>
+            <div class="flex items-center">
+              <button id="themeToggle" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-semibold py-2 px-4 rounded">
+                Light Theme
+              </button>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <main class="container mx-auto px-4 py-8">
+        <section class="bg-white shadow-md rounded-lg p-8 dark:bg-gray-700">
+          <h2 class="text-3xl font-bold mb-6 text-primary dark:text-white">LoRaWAN Worker Tracking Documentation</h2>
+          <p class="text-lg text-gray-700 mb-6 dark:text-gray-300">
+            Comprehensive evaluation and implementation guide for real-time worker tracking in oil palm plantations.
+          </p>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-gray-100 p-6 rounded-lg dark:bg-gray-600">
+              <h3 class="text-xl font-semibold mb-4 dark:text-white">Project Overview</h3>
+              <div class="space-y-3 text-gray-700 dark:text-gray-300">
+                <p><strong>Contractor:</strong> TEQ Armada Sdn Bhd.</p>
+                <p><strong>Client:</strong> Sabah Softwoods Berhad</p>
+                <p><strong>Location:</strong> Oil palm plantation estate in Sabah</p>
+                <p><strong>Equipment:</strong> Dragino Tracker D devices & DL0S86 gateway</p>
+                <p><strong>Duration:</strong> 7 weeks</p>
+                <p><strong>Budget:</strong> RM33,695 - RM42,325</p>
+                <p class="mt-4">TEQ Armada's comprehensive evaluation of LoRaWAN worker tracking system, focusing on overcoming dense foliage challenges and optimizing plantation operations for enhanced worker safety.</p>
+              </div>
+            </div>
+
+            <div class="bg-gray-100 p-6 rounded-lg dark:bg-gray-600">
+              <h3 class="text-xl font-semibold mb-4 dark:text-white">Key Objectives</h3>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-primary dark:text-secondary-light mr-2">•</span>
+                  <span class="text-gray-700 dark:text-gray-300"><strong>LoRaWAN Coverage:</strong> Evaluate signal penetration in dense plantation environments</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-primary dark:text-secondary-light mr-2">•</span>
+                  <span class="text-gray-700 dark:text-gray-300"><strong>GPS Accuracy:</strong> Test location tracking under tree canopies</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-primary dark:text-secondary-light mr-2">•</span>
+                  <span class="text-gray-700 dark:text-gray-300"><strong>Device Performance:</strong> Assess Dragino Tracker D functionality and battery life</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-primary dark:text-secondary-light mr-2">•</span>
+                  <span class="text-gray-700 dark:text-gray-300"><strong>Cellular Connectivity:</strong> Analyze backhaul signal strength for gateway placement</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-100 p-6 rounded-lg dark:bg-gray-600">
+              <h3 class="text-xl font-semibold mb-4 dark:text-white">Quick Links</h3>
+              <div class="space-y-2">
+                <a href="./pages/evaluation_plan.html" class="block w-full px-4 py-2 text-left text-secondary bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-secondary-light dark:hover:bg-gray-600 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fas fa-file-alt mr-4"></i>Evaluation Plan
+                </a>
+                <a href="./pages/evaluation_procedure.html" class="block w-full px-4 py-2 text-left text-secondary bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-secondary-light dark:hover:bg-gray-600 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fas fa-clipboard-list mr-4"></i>Evaluation Procedure
+                </a>
+                <a href="./pages/pre_site_visit_checklist.html" class="block w-full px-4 py-2 text-left text-secondary bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-secondary-light dark:hover:bg-gray-600 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fas fa-list-check mr-4"></i>Pre-Site Visit Checklist
+                </a>
+                <a href="./pages/evaluation_report.html" class="block w-full px-4 py-2 text-left text-secondary bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-secondary-light dark:hover:bg-gray-600 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fas fa-file-alt mr-4"></i>Evaluation Report
+                </a>
+                <a href="./pages/team_members.html" class="block w-full px-4 py-2 text-left text-secondary bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-secondary-light dark:hover:bg-gray-600 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fas fa-users mr-4"></i>Evaluation Team
+                </a>
+                <a href="./pages/project_cost_estimation.html" class="block w-full px-4 py-2 text-left text-secondary bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-secondary-light dark:hover:bg-gray-600 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fas fa-calculator mr-4"></i>Project Cost Estimation
+                </a>
+                <a href="./pages/project_implementation_timeline.html" class="block w-full px-4 py-2 text-left text-secondary bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-secondary-light dark:hover:bg-gray-600 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fas fa-timeline mr-4"></i>Project Timeline
+                </a>
+                <a href="./pages/test_setup.html" class="block w-full px-4 py-2 text-left text-secondary bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-secondary-light dark:hover:bg-gray-600 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fas fa-flask mr-4"></i>Test Setup
+                </a>
+                <a href="./pages/map.html" class="block w-full px-4 py-2 text-left text-secondary bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-secondary-light dark:hover:bg-gray-600 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fas fa-map-marked-alt mr-4"></i>Estate Map
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 bg-blue-50 p-6 rounded-lg dark:bg-blue-900">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-gray-100 p-6 rounded-lg dark:bg-gray-600">
+                <h3 class="text-xl font-semibold mb-4 dark:text-white">Key Milestones</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                  <strong>Current Time:</strong> 2024-12-19T16:55:52+08:00
+                </p>
+                <div class="mt-4 text-base text-gray-700 dark:text-gray-300">
+                  <p class="text-lg font-semibold mb-2">Total Project Duration: 7 weeks</p>
+                  <ul class="list-disc pl-5 text-base space-y-1">
+                    <li><strong>Week 1:</strong> Finalization of the evaluation plan.</li>
+                    <li><strong>Week 2:</strong> Completion of equipment procurement and configuration.</li>
+                    <li><strong>Week 3:</strong> Successful initial testing in Kuala Lumpur.</li>
+                    <li><strong>Week 5:</strong> Completion of on-site evaluation in Sabah.</li>
+                    <li><strong>Week 7:</strong> Submission of the final evaluation report.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="bg-gray-100 p-6 rounded-lg dark:bg-gray-600">
+                <h3 class="text-xl font-semibold mb-4 dark:text-white">Estimated Project Costs</h3>
+                <div class="w-full h-64 flex items-center justify-center">
+                  <canvas id="costPieChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <section class="container mx-auto px-4 py-8">
+            <div class="bg-white shadow-md rounded-lg p-8 dark:bg-gray-700">
+              <h2 class="text-3xl font-bold mb-6 text-primary dark:text-white">Project Gantt Chart</h2>
+              
+              <div class="wrapper">
+                <div class="gantt">
+                  <div class="gantt__row gantt__row--months">
+                    <div class="gantt__row-first"></div>
+                    <span>W1</span><span>W2</span><span>W3</span>
+                    <span>W4</span><span>W5</span><span>W6</span>
+                    <span>W7</span><span>W8</span><span></span>
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="gantt__row gantt__row--lines">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="gantt__row">
+                    <div class="gantt__row-first">Planning</div>
+                    <ul class="gantt__row-bars">
+                      <li style="grid-column: 1/3; background-color: #3B82F6;">Evaluation Plan</li>
+                      <li style="grid-column: 2/3; background-color: #3B82F6;">Equip Prep</li>
+                    </ul>
+                  </div>
+                  <div class="gantt__row">
+                    <div class="gantt__row-first">Testing (KL)</div>
+                    <ul class="gantt__row-bars">
+                      <li style="grid-column: 3/4; background-color: #10B981;">Equip Setup</li>
+                      <li style="grid-column: 3/5; background-color: #10B981;">Performance Tests</li>
+                    </ul>
+                  </div>
+                  <div class="gantt__row">
+                    <div class="gantt__row-first">Sabah Evaluation</div>
+                    <ul class="gantt__row-bars">
+                      <li style="grid-column: 4/5; background-color: #8B5CF6;">Travel</li>
+                      <li style="grid-column: 4/5; background-color: #8B5CF6;">Equip Setup</li>
+                      <li style="grid-column: 4/6; background-color: #8B5CF6;">LoRaWAN Tests</li>
+                    </ul>
+                  </div>
+                  <div class="gantt__row">
+                    <div class="gantt__row-first">Reporting</div>
+                    <ul class="gantt__row-bars">
+                      <li style="grid-column: 5/7; background-color: #EF4444;">Data Analysis</li>
+                      <li style="grid-column: 6/7; background-color: #EF4444;">Report Writing</li>
+                      <li style="grid-column: 7/8; background-color: #EF4444;">Finalization</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <footer class="bg-primary text-white py-6 mt-8 dark:bg-gray-700">
+        <div class="container mx-auto px-4 text-center">
+          <p>&copy; 2024 adyaakob Worker Tracking Project. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const ctx = document.getElementById('costPieChart');
+        
+        if (ctx) {
+          const totalCost = 40000;
+          const costData = [15000, 5000, 10000, 7500, 2500];
+          
+          new Chart(ctx, {
+            type: 'pie',
+            data: {
+              labels: [
+                'Equipment Procurement', 
+                'Travel Expenses', 
+                'Testing & Evaluation', 
+                'Data Analysis', 
+                'Reporting & Documentation'
+              ],
+              datasets: [{
+                label: 'Estimated Project Costs (MYR)',
+                data: costData,
+                backgroundColor: [
+                  '#3B82F6',  // Blue for Equipment
+                  '#8B5CF6',  // Purple for Travel
+                  '#10B981',  // Green for Testing
+                  '#EF4444',  // Red for Analysis
+                  '#F59E0B'   // Amber for Reporting
+                ],
+                hoverOffset: 4
+              }]
+            },
+            plugins: [ChartDataLabels],
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  position: 'right',
+                  labels: {
+                    color: document.documentElement.classList.contains('dark') ? 'white' : 'black'
+                  }
+                },
+                tooltip: {
+                  callbacks: {
+                    label: function(context) {
+                      const value = context.parsed;
+                      return `MYR ${value.toLocaleString()}`;
+                    }
+                  }
+                },
+                datalabels: {
+                  color: 'white',
+                  font: {
+                    weight: 'bold',
+                    size: 12
+                  },
+                  formatter: function(value) {
+                    const percentage = ((value / totalCost) * 100).toFixed(1);
+                    return `${percentage}%`;
+                  }
+                }
+              }
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+  </html>

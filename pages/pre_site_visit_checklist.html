@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Site Visit Checklist | LoRaWAN Worker Tracking</title>
+    <link href="/src/styles/main.css" rel="stylesheet">
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+  <body class="bg-gray-50">
+    <header class="bg-primary text-white py-6">
+      <div class="container mx-auto px-4">
+        <h1 class="text-2xl font-bold">Pre-Site Visit Checklist</h1>
+      </div>
+    </header>
+    
+    <main class="container mx-auto px-4 py-8">
+      <section class="bg-white shadow-md rounded-lg p-8">
+        <div class="mb-4">
+          <a href="/" class="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark transition-colors">
+            ← Back to Home
+          </a>
+        </div>
+        <h2 class="text-3xl font-bold mb-6 text-primary">Pre-Site Visit Checklist</h2>
+        
+        <div class="prose max-w-full">
+          <h3 class="text-2xl font-semibold mb-4">Pre-Site Visit Comprehensive Checklist</h3>
+          <dl class="grid grid-cols-1 gap-4 bg-gray-50 p-6 rounded-lg">
+            <div class="border-b pb-3 last:border-b-0">
+              <dt class="font-bold text-lg mb-2">Equipment Readiness</dt>
+              <dd class="text-gray-700">
+                <ul class="list-none pl-0">
+                  <li class="flex items-center mb-2">
+                    <input type="checkbox" id="tracker-check" class="mr-4 w-4 h-4 text-primary focus:ring-primary">
+                    <label for="tracker-check" class="flex-grow">
+                      <strong>LoRaWAN Trackers:</strong> Fully charged and configured Dragino Tracker D devices
+                    </label>
+                  </li>
+                  <li class="flex items-center mb-2">
+                    <input type="checkbox" id="gateway-check" class="mr-4 w-4 h-4 text-primary focus:ring-primary">
+                    <label for="gateway-check" class="flex-grow">
+                      <strong>Gateway:</strong> DL0S86 gateway tested and operational
+                    </label>
+                  </li>
+                  <li class="flex items-center">
+                    <input type="checkbox" id="backup-power-check" class="mr-4 w-4 h-4 text-primary focus:ring-primary">
+                    <label for="backup-power-check" class="flex-grow">
+                      <strong>Backup Power:</strong> Portable chargers and extra batteries available
+                    </label>
+                  </li>
+                </ul>
+              </dd>
+            </div>
+            <div class="border-b pb-3 last:border-b-0">
+              <dt class="font-bold text-lg mb-2">Documentation Preparation</dt>
+              <dd class="text-gray-700">
+                <ul class="list-none pl-0">
+                  <li class="flex items-center mb-2">
+                    <input type="checkbox" id="site-maps-check" class="mr-4 w-4 h-4 text-primary focus:ring-primary">
+                    <label for="site-maps-check" class="flex-grow">
+                      <strong>Site Maps:</strong> Updated estate layout and worker movement zones
+                    </label>
+                  </li>
+                  <li class="flex items-center mb-2">
+                    <input type="checkbox" id="permission-forms-check" class="mr-4 w-4 h-4 text-primary focus:ring-primary">
+                    <label for="permission-forms-check" class="flex-grow">
+                      <strong>Permission Forms:</strong> Signed consent for tracking and data collection
+                    </label>
+                  </li>
+                  <li class="flex items-center">
+                    <input type="checkbox" id="project-brief-check" class="mr-4 w-4 h-4 text-primary focus:ring-primary">
+                    <label for="project-brief-check" class="flex-grow">
+                      <strong>Project Brief:</strong> Detailed explanation of tracking system objectives
+                    </label>
+                  </li>
+                </ul>
+              </dd>
+            </div>
+            <div class="border-b pb-3 last:border-b-0">
+              <dt class="font-bold text-lg mb-2">Technical Verification</dt>
+              <dd class="text-gray-700">
+                <ul class="list-none pl-0">
+                  <li class="flex items-center mb-2">
+                    <input type="checkbox" id="network-coverage-check" class="mr-4 w-4 h-4 text-primary focus:ring-primary">
+                    <label for="network-coverage-check" class="flex-grow">
+                      <strong>Network Coverage:</strong> Pre-test LoRaWAN signal strength in key areas
+                    </label>
+                  </li>
+                  <li class="flex items-center mb-2">
+                    <input type="checkbox" id="software-compatibility-check" class="mr-4 w-4 h-4 text-primary focus:ring-primary">
+                    <label for="software-compatibility-check" class="flex-grow">
+                      <strong>Software Compatibility:</strong> Latest firmware on all devices
+                    </label>
+                  </li>
+                  <li class="flex items-center">
+                    <input type="checkbox" id="data-logging-check" class="mr-4 w-4 h-4 text-primary focus:ring-primary">
+                    <label for="data-logging-check" class="flex-grow">
+                      <strong>Data Logging:</strong> Verify data transmission and storage capabilities
+                    </label>
+                  </li>
+                </ul>
+              </dd>
+            </div>
+            <div class="border-b pb-3 last:border-b-0">
+              <dt class="font-bold text-lg mb-2">Safety and Compliance</dt>
+              <dd class="text-gray-700">
+                <ul class="list-none pl-0">
+                  <li class="flex items-center mb-2">
+                    <input type="checkbox" id="worker-briefing-check" class="mr-4 w-4 h-4 text-primary focus:ring-primary">
+                    <label for="worker-briefing-check" class="flex-grow">
+                      <strong>Worker Briefing:</strong> Prepare presentation on tracking system benefits
+                    </label>
+                  </li>
+                  <li class="flex items-center mb-2">
+                    <input type="checkbox" id="privacy-measures-check" class="mr-4 w-4 h-4 text-primary focus:ring-primary">
+                    <label for="privacy-measures-check" class="flex-grow">
+                      <strong>Privacy Measures:</strong> Explain data protection and usage policies
+                    </label>
+                  </li>
+                  <li class="flex items-center">
+                    <input type="checkbox" id="emergency-protocols-check" class="mr-4 w-4 h-4 text-primary focus:ring-primary">
+                    <label for="emergency-protocols-check" class="flex-grow">
+                      <strong>Emergency Protocols:</strong> Review communication and tracking during emergencies
+                    </label>
+                  </li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">1. Introduction</h3>
+          <p>This report outlines the necessary preparations and verifications to be performed before conducting the on-site evaluation of the LoRaWAN-based worker tracking system in the selected oil palm estate. The objective is to ensure all necessary tools, equipment, and information are prepared and in working order for a smooth and efficient evaluation process.</p>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">2. Equipment and Tools</h3>
+          <p>Before the site visit, ensure the following equipment and tools are available and properly verified:</p>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200 mt-2">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border p-2">Item</th>
+                  <th class="border p-2">Model (Example)</th>
+                  <th class="border p-2">Verification</th>
+                  <th class="border p-2">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2">Dragino Tracker D LoRaWAN GPS trackers</td>
+                  <td class="border p-2">Dragino Tracker D</td>
+                  <td class="border p-2">
+                    - Devices are fully charged. <br>
+                    - Device firmware is up-to-date. <br>
+                    - Device configurations (e.g., frequency band, data transmission interval) are set correctly.
+                  </td>
+                  <td class="border p-2">Multiple trackers are recommended for comprehensive testing.</td>
+                </tr>
+                <tr>
+                  <td class="border p-2">Dragino Outdoor Gateway DL0S86 (AS923) with 4G EC25</td>
+                  <td class="border p-2">Dragino DL0S86</td>
+                  <td class="border p-2">
+                    - Gateway is configured correctly (e.g., network server address, frequency band). <br>
+                    - 4G SIM card with sufficient data is installed and activated. <br>
+                    - Antenna is connected securely.
+                  </td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">Laptop</td>
+                  <td class="border p-2">Any suitable laptop</td>
+                  <td class="border p-2">
+                    - Laptop is fully charged. <br>
+                    - LoRaWAN network server software (e.g., The Things Network, ChirpStack) is installed and configured. <br>
+                    - Mapping software (e.g., QGIS, Google Earth Pro) is installed. <br>
+                    - Necessary drivers and connectors are available.
+                  </td>
+                  <td class="border p-2"><strong>Note:</strong> Contact the supplier of the chosen LoRaWAN network server software for recommendations on specific configurations and any available training resources 123.</td>
+                </tr>
+                <tr>
+                  <td class="border p-2">High-accuracy GPS device</td>
+                  <td class="border p-2">Garmin GPSMAP 66i</td>
+                  <td class="border p-2">
+                    - Device is fully charged. <br>
+                    - Device settings (e.g., coordinate system, data logging) are configured correctly.
+                  </td>
+                  <td class="border p-2">Alternatively, use a detailed map of the estate with sufficient accuracy.</td>
+                </tr>
+                <tr>
+                  <td class="border p-2">Cellular signal strength meter</td>
+                  <td class="border p-2">RF Explorer Handheld Spectrum Analyzer</td>
+                  <td class="border p-2">
+                    - Device is calibrated and functioning correctly. <br>
+                    - Device is compatible with Malaysian cellular frequencies.
+                  </td>
+                  <td class="border p-2">Alternatively, use a mobile phone with field test mode and a signal strength measurement app. See the list below for suitable options.</td>
+                </tr>
+                <tr>
+                  <td class="border p-2">Measuring tape or laser distance measuring equipment</td>
+                  <td class="border p-2">Bosch GLM 50 C</td>
+                  <td class="border p-2">
+                    - Device is functioning correctly and batteries are installed.
+                  </td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">Tools for mounting the gateway</td>
+                  <td class="border p-2">Ladder, mounting brackets, tools</td>
+                  <td class="border p-2">
+                    - Ensure you have the appropriate tools for the chosen mounting surface (e.g., wall, pole).
+                  </td>
+                  <td class="border p-2"></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">Power bank (optional)</td>
+                  <td class="border p-2">Any suitable power bank</td>
+                  <td class="border p-2">
+                    - Power bank is fully charged.
+                  </td>
+                  <td class="border p-2">For charging devices in the field.</td>
+                </tr>
+                <tr>
+                  <td class="border p-2">First-aid kit</td>
+                  <td class="border p-2"></td>
+                  <td class="border p-2">
+                    - Kit is well-stocked with essential supplies.
+                  </td>
+                  <td class="border p-2"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">3. Software Verification</h3>
+          <p>Verify the functionality and compatibility of the following software:</p>
+          <ul class="list-disc pl-6">
+            <li><strong>LoRaWAN Network Server:</strong> Ensure the network server is accessible and configured correctly. Test the connection with the Dragino DL0S86 gateway.</li>
+            <li><strong>Mapping Software:</strong> Familiarize yourself with the mapping software and ensure you can import and visualize GPS data.</li>
+            <li><strong>Cellular Signal Strength Measurement:</strong> If using a mobile phone, download and test a signal strength measurement app.</li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">4. Site Information</h3>
+          <p>Gather the following information about the selected test site:</p>
+          <ul class="list-disc pl-6">
+            <li><strong>Estate Selection:</strong> Choose the estate for testing and gather relevant information (e.g., maps, terrain details, potential obstacles).</li>
+            <li><strong>Contact Person:</strong> Establish contact with a person on-site for access and assistance during the evaluation.</li>
+            <li><strong>Permissions:</strong> Obtain any necessary permissions for accessing and installing equipment on the estate.</li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">5. Safety Briefing</h3>
+          <p>Conduct a safety briefing with the evaluation team to discuss potential hazards and safety procedures in the plantation environment.</p>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">6. Data Collection Preparation</h3>
+          <ul class="list-disc pl-6">
+            <li>Prepare data collection forms for each test, ensuring all necessary fields are included.</li>
+            <li>Familiarize yourself with the data recording procedures and ensure all team members understand their roles.</li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">7. Contingency Planning</h3>
+          <ul class="list-disc pl-6">
+            <li>Have backup equipment and tools available in case of any malfunctions.</li>
+            <li>Develop a plan for dealing with unexpected weather conditions or other potential disruptions.</li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">8. Mobile Phones with Field Test Mode and Signal Strength Measurement Apps</h3>
+          <p>Here's a list of mobile phones and apps that can be used for measuring cellular signal strength:</p>
+
+          <h4 class="text-xl font-semibold mt-4 mb-2">For iPhones:</h4>
+          <ul class="list-disc pl-6">
+            <li><strong>Field Test Mode:</strong> Access by dialing *3001#12345#*
+              <ul>
+                <li>Note that not all iPhones provide RSRP measurements due to carrier and chipset compatibility.</li>
+              </ul>
+            </li>
+            <li><strong>Apps:</strong>
+              <ul class="list-disc pl-6">
+                <li><strong>weBoost App:</strong> Provides a signal meter and field test mode instructions.</li>
+                <li><strong>OpenSignal:</strong> A reliable speed test tool with coverage maps.</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h4 class="text-xl font-semibold mt-4 mb-2">For Android:</h4>
+          <ul class="list-disc pl-6">
+            <li><strong>Field Test Mode:</strong> Access varies by phone model and OS version, usually found under Settings.</li>
+            <li><strong>Apps:</strong>
+              <ul class="list-disc pl-6">
+                <li><strong>Network Cell Info Lite:</strong> Provides a signal meter, network information, and cell tower locations.</li>
+                <li><strong>SignalStream:</strong> Shows field test information and allows sharing readings with signal specialists 4.</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">9. Conclusion</h3>
+          <p>By diligently completing this checklist, the evaluation team can ensure a well-prepared and successful on-site evaluation of the LoRaWAN-based worker tracking system. This will contribute to a comprehensive understanding of the system's feasibility and performance in the oil palm plantation environment.</p>
+
+          <h4 class="text-xl font-semibold mt-6 mb-2">Works cited</h4>
+          <ol class="list-decimal pl-6 text-sm">
+            <li>Academy for LoRaWAN, accessed on December 15, 2024, <a href="https://learn.semtech.com/" class="text-secondary hover:underline">https://learn.semtech.com/</a></li>
+            <li>RAK7289 LoRaWAN Network Server Guide - RAKwireless Documentation Center, accessed on December 15, 2024, <a href="https://docs.rakwireless.com/product-categories/wisgate/rak7289/lorawan-network-server-guide" class="text-secondary hover:underline">https://docs.rakwireless.com/product-categories/wisgate/rak7289/lorawan-network-server-guide</a></li>
+            <li>Course: How to Build & Deploy a Network Using the LoRaWAN® Protocol, accessed on December 15, 2024, <a href="https://learn.semtech.com/course/view.php?id=17" class="text-secondary hover:underline">https://learn.semtech.com/course/view.php?id=17</a></li>
+            <li>Field Test Mode For iPhones and Android - Waveform, accessed on December 15, 2024, <a href="https://www.waveform.com/a/b/guides/field-test-guide" class="text-secondary hover:underline">https://www.waveform.com/a/b/guides/field-test-guide</a></li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-primary text-white py-6 mt-8">
+      <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2024 adyaakob Worker Tracking Project. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+  </html>

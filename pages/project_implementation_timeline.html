@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Implementation Timeline | LoRaWAN Worker Tracking</title>
+    <link href="/src/styles/main.css" rel="stylesheet">
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+  <body class="bg-gray-50">
+    <header class="bg-primary text-white py-6">
+      <div class="container mx-auto px-4">
+        <h1 class="text-2xl font-bold">Project Implementation Timeline</h1>
+      </div>
+    </header>
+    
+    <main class="container mx-auto px-4 py-8">
+      <section class="bg-white shadow-md rounded-lg p-8">
+        <div class="mb-4">
+          <a href="/" class="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark transition-colors">
+            ← Back to Home
+          </a>
+        </div>
+        <h2 class="text-3xl font-bold mb-6 text-primary">Project Implementation Timeline</h2>
+        
+        <div class="prose max-w-full">
+          <p>This timeline outlines the key activities and estimated durations for implementing the evaluation of a LoRaWAN-based worker tracking system in an oil palm plantation in Sabah, Malaysia. The evaluation aims to assess the feasibility and effectiveness of using LoRaWAN technology for real-time worker tracking in this unique environment.</p>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Key References:</h3>
+          <ul class="list-disc pl-6">
+            <li>Evaluation Plan</li>
+            <li>Evaluation Procedure</li>
+            <li>Pre-Site Visit Checklist</li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Assumptions:</h3>
+          <ul class="list-disc pl-6">
+            <li>Visa is not required for travel within Malaysia.</li>
+            <li>All equipment will be hand-carried by the evaluation team.</li>
+            <li>Initial testing and configuration will be conducted in Kuala Lumpur before traveling to Sabah.</li>
+            <li>The evaluation will be conducted in one selected oil palm estate in Sabah.</li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Phase 1: Planning and Preparation (2 weeks)</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200 mt-2">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border p-2">Activity</th>
+                  <th class="border p-2">Duration</th>
+                  <th class="border p-2">Dependencies</th>
+                  <th class="border p-2">Details/Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2"><strong>Finalize Evaluation Plan</strong></td>
+                  <td class="border p-2">1 week</td>
+                  <td class="border p-2">None</td>
+                  <td class="border p-2">
+                    - Review and confirm the objectives, scope, methodology, and deliverables of the evaluation with stakeholders. <br>
+                    - Define specific test scenarios and data collection requirements. <br>
+                    - Identify potential risks and develop mitigation strategies.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><strong>Equipment Procurement and Preparation</strong></td>
+                  <td class="border p-2">1 week</td>
+                  <td class="border p-2">None</td>
+                  <td class="border p-2">
+                    - Procure Dragino Tracker D devices and Dragino DLOS86 gateway. <br>
+                    - Source from local suppliers for faster delivery and potential for hands-on training. <br>
+                    - Verify equipment functionality and configure devices according to the evaluation plan.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Phase 2: Initial Testing and Configuration in Kuala Lumpur (1 week)</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200 mt-2">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border p-2">Activity</th>
+                  <th class="border p-2">Duration</th>
+                  <th class="border p-2">Dependencies</th>
+                  <th class="border p-2">Details/Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2"><strong>Equipment Setup and Configuration</strong></td>
+                  <td class="border p-2">1 day</td>
+                  <td class="border p-2">Equipment Procurement and Preparation</td>
+                  <td class="border p-2">
+                    - Set up the LoRaWAN gateway and connect it to the network server. <br>
+                    - Configure the Dragino Tracker D devices and test their connectivity to the gateway.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><strong>Initial Range and Performance Tests</strong></td>
+                  <td class="border p-2">3 days</td>
+                  <td class="border p-2">Equipment Setup and Configuration</td>
+                  <td class="border p-2">
+                    - Conduct preliminary range tests in an open area to establish baseline performance. <br>
+                    - Evaluate GPS accuracy and data transmission capabilities of the tracker devices. <br>
+                    - Fine-tune device configurations and network settings as needed.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><strong>Testing in Oil Palm Plantation (Selangor)</strong></td>
+                  <td class="border p-2">3 days</td>
+                  <td class="border p-2">Initial Range and Performance Tests</td>
+                  <td class="border p-2">
+                    - Identify a suitable oil palm plantation in Selangor for preliminary testing under canopy. <br>
+                    - Conduct range tests, GPS accuracy tests, and device performance evaluation under the canopy. <br>
+                    - Gather preliminary data on signal strength, packet loss, and battery life.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Phase 3: Travel to Sabah and On-Site Evaluation (2 weeks)</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200 mt-2">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border p-2">Activity</th>
+                  <th class="border p-2">Duration</th>
+                  <th class="border p-2">Dependencies</th>
+                  <th class="border p-2">Details/Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2"><strong>Travel to Sabah</strong></td>
+                  <td class="border p-2">1 day</td>
+                  <td class="border p-2">None</td>
+                  <td class="border p-2">
+                    - Travel to Kota Kinabalu, Sabah. <br>
+                    - Arrange local transportation to the selected oil palm estate.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><strong>On-Site Equipment Setup</strong></td>
+                  <td class="border p-2">1 day</td>
+                  <td class="border p-2">Travel to Sabah, Equipment Procurement and Preparation</td>
+                  <td class="border p-2">
+                    - Install and configure the Dragino DLOS86 gateway at a suitable location in the plantation. <br>
+                    - Ensure gateway connectivity and network registration.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><strong>LoRaWAN Range Tests</strong></td>
+                  <td class="border p-2">2 days</td>
+                  <td class="border p-2">On-Site Equipment Setup</td>
+                  <td class="border p-2">
+                    - Conduct range tests under the oil palm canopy to determine coverage and signal strength. <br>
+                    - Vary the transmission power and spreading factor to optimize performance. <br>
+                    - Record RSSI and SNR values at different distances and locations.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><strong>GPS Accuracy Tests</strong></td>
+                  <td class="border p-2">2 days</td>
+                  <td class="border p-2">On-Site Equipment Setup</td>
+                  <td class="border p-2">
+                    - Evaluate the GPS accuracy of the Dragino Tracker D under the canopy. <br>
+                    - Record GPS coordinates and compare with actual coordinates using a high-accuracy GPS device or map.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><strong>Device Performance Evaluation</strong></td>
+                  <td class="border p-2">3 days</td>
+                  <td class="border p-2">On-Site Equipment Setup</td>
+                  <td class="border p-2">
+                    - Assess the battery life of the Dragino Tracker D under typical usage conditions. <br>
+                    - Measure data transmission rates and latency in the plantation environment. <br>
+                    - Evaluate device ruggedness and suitability for the plantation environment.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><strong>Cellular Signal Strength Measurement</strong></td>
+                  <td class="border p-2">1 day</td>
+                  <td class="border p-2">None</td>
+                  <td class="border p-2">
+                    - Measure cellular signal strength in the plantation area using a mobile phone with field test mode or a signal strength measurement app. <br>
+                    - Identify areas with weak or no cellular coverage.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><strong>Data Collection and Backup</strong></td>
+                  <td class="border p-2">1 day</td>
+                  <td class="border p-2">LoRaWAN Range Tests, GPS Accuracy Tests, Device Performance Evaluation, Cellular Signal Strength Measurement</td>
+                  <td class="border p-2">
+                    - Gather all data collected during the on-site evaluation. <br>
+                    - Ensure data integrity and create backups.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Phase 4: Analysis and Reporting (3 weeks)</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200 mt-2">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border p-2">Activity</th>
+                  <th class="border p-2">Duration</th>
+                  <th class="border p-2">Dependencies</th>
+                  <th class="border p-2">Details/Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2"><strong>Data Analysis and Interpretation</strong></td>
+                  <td class="border p-2">1.5 weeks</td>
+                  <td class="border p-2">Data Collection and Backup</td>
+                  <td class="border p-2">
+                    - Analyze LoRaWAN range test data, GPS accuracy data, device performance data, and cellular signal strength data. <br>
+                    - Calculate packet loss, data transmission rates, and latency. <br>
+                    - Identify trends, patterns, and key findings.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><strong>Report Writing</strong></td>
+                  <td class="border p-2">1 week</td>
+                  <td class="border p-2">Data Analysis and Interpretation</td>
+                  <td class="border p-2">
+                    - Prepare a comprehensive evaluation report documenting the methodology, results, and analysis. <br>
+                    - Include recommendations and conclusions based on the evaluation findings.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><strong>Report Review and Finalization</strong></td>
+                  <td class="border p-2">0.5 weeks</td>
+                  <td class="border p-2">Report Writing</td>
+                  <td class="border p-2">
+                    - Review the report with stakeholders and incorporate feedback. <br>
+                    - Finalize the report and submit it to the client.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Total Project Duration: 7 weeks</h3>
+          <p>This timeline provides a high-level overview of the project implementation. The actual durations of individual activities may vary depending on unforeseen circumstances and on-site conditions. Regular communication and collaboration with stakeholders will be crucial throughout the project to ensure its successful completion.</p>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Critical Milestones:</h3>
+          <ul class="list-disc pl-6">
+            <li>Finalization of the evaluation plan.</li>
+            <li>Completion of equipment procurement and configuration.</li>
+            <li>Successful initial testing in Kuala Lumpur.</li>
+            <li>Completion of on-site evaluation in Sabah.</li>
+            <li>Submission of the final evaluation report.</li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6 mb-4">Multiple Scenarios:</h3>
+          <ul class="list-disc pl-6">
+            <li><strong>Scenario 1: Optimal Conditions:</strong> All equipment functions as expected, and testing proceeds smoothly. This scenario follows the timeline as outlined above.</li>
+            <li><strong>Scenario 2: Equipment Delays:</strong> Delays in equipment procurement or shipping may extend the overall project duration. Contingency plans should include alternative suppliers or expedited shipping options.</li>
+            <li><strong>Scenario 3: On-Site Challenges:</strong> Unforeseen challenges on-site, such as adverse weather conditions or technical difficulties, may require adjustments to the testing schedule. Flexibility and adaptability will be crucial to overcome these challenges.</li>
+            <li><strong>Scenario 4: Data Analysis Complexity:</strong> If the data analysis requires more time than anticipated, the reporting phase may be extended accordingly.</li>
+          </ul>
+
+          <p>This timeline, along with the considerations for multiple scenarios, provides a comprehensive framework for implementing the LoRaWAN-based worker tracking system evaluation in Sabah, Malaysia.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-primary text-white py-6 mt-8">
+      <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2024 adyaakob Worker Tracking Project. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+  </html>
