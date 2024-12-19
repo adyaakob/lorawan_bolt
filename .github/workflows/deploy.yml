@@ -17,36 +17,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      - name: Display Node and npm versions
-        run: |
-          node --version
-          npm --version
-      
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'
       
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      
       - name: Install dependencies
-        run: npm ci --prefer-offline --no-audit
-      
-      - name: List project files
-        run: ls -R
+        run: npm ci
       
       - name: Build
-        run: npx vite build --debug
+        run: npx vite build
       
-      - name: Show dist contents
-        run: ls -l dist
+      - name: List dist contents
+        run: |
+          ls -R dist
+          echo "Total files in dist:"
+          find dist -type f | wc -l
       
       - name: Setup Pages
         uses: actions/configure-pages@v3
