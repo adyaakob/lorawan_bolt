@@ -23,5 +23,11 @@ export default defineConfig({
     },
     outDir: 'dist',
     assetsDir: 'assets'
+  },
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src'),
+      '~': resolve(__dirname, './node_modules')
+    }
   }
 });
