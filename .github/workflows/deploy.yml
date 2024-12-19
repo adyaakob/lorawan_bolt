@@ -26,6 +26,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
+      - name: Run asset path update script
+        run: |
+          chmod +x update_asset_paths.sh
+          ./update_asset_paths.sh
+      
       - name: Build
         run: npx vite build
       

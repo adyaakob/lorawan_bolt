@@ -7,7 +7,6 @@ export default defineConfig({
     open: true
   },
   build: {
-    outDir: 'dist',
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
@@ -21,6 +20,8 @@ export default defineConfig({
         pre_site_visit_checklist: resolve(__dirname, 'pages/pre_site_visit_checklist.html'),
         map: resolve(__dirname, 'pages/map.html')
       }
-    }
+    },
+    outDir: 'dist',
+    assetsDir: 'assets'
   }
 });
