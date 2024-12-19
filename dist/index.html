@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+  <html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoRaWAN Worker Tracking System</title>
+    
+    
+    <script type="module" crossorigin src="./assets/main-ae269c9d.js"></script>
+    <link rel="stylesheet" href="./assets/main-e8f0b976.css">
+  </head>
+  <body class="bg-gray-50 font-sans dark:bg-gray-800 dark:text-white">
+    <div id="app">
+      <header class="bg-primary text-white py-6 dark:bg-gray-700">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+          <h1 class="text-2xl font-bold">LoRaWAN Worker Tracking</h1>
+          <nav class="flex items-center">
+            <ul class="flex space-x-4 mr-4">
+              <li><a href="/" class="hover:text-gray-200">Home</a></li>
+              <li class="relative group">
+                <span class="cursor-pointer hover:text-gray-200">Documentation</span>
+                <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48 dark:bg-gray-600 dark:text-white">
+                  <li><a href="/pages/evaluation_plan.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Evaluation Plan</a></li>
+                  <li><a href="/pages/evaluation_procedure.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Evaluation Procedure</a></li>
+                  <li><a href="/pages/pre_site_visit_checklist.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Pre-Site Visit Checklist</a></li>
+                </ul>
+              </li>
+              <li class="relative group">
+                <span class="cursor-pointer hover:text-gray-200">Project Management</span>
+                <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48 dark:bg-gray-600 dark:text-white">
+                  <li><a href="/pages/project_cost_estimation.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Cost Estimation</a></li>
+                  <li><a href="/pages/project_implementation_timeline.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Implementation Timeline</a></li>
+                </ul>
+              </li>
+              <li class="relative group">
+                <span class="cursor-pointer hover:text-gray-200">Supplementary Docs</span>
+                <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48 dark:bg-gray-600 dark:text-white">
+                  <li><a href="/pages/evaluation_checklist.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Evaluation Checklist</a></li>
+                  <li><a href="/pages/evaluation_team.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Evaluation Team</a></li>
+                </ul>
+              </li>
+              <li class="relative group">
+                <span class="cursor-pointer hover:text-gray-200">Site Details</span>
+                <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48 dark:bg-gray-600 dark:text-white">
+                  <li><a href="/pages/estate_areas.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Estate Areas</a></li>
+                  <li><a href="/pages/map.html" class="block py-1 hover:bg-gray-100 dark:hover:bg-gray-500">Project Map</a></li>
+                </ul>
+              </li>
+              <li><a href="/pages/evaluation_report.html" class="hover:text-gray-200">Evaluation Report</a></li>
+            </ul>
+            <button id="themeToggle" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-semibold py-2 px-4 rounded">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.773l-1.591 1.591M5.25 12H3m.386-6.364l1.591 1.591M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <main class="container mx-auto px-4 py-8">
+        <section class="bg-white shadow-md rounded-lg p-8 dark:bg-gray-700">
+          <h2 class="text-3xl font-bold mb-6 text-primary dark:text-white">LoRaWAN Worker Tracking Project</h2>
+          
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-gray-100 p-6 rounded-lg dark:bg-gray-600">
+              <h3 class="text-xl font-semibold mb-4 dark:text-white">Project Overview</h3>
+              <p class="dark:text-gray-300">A comprehensive evaluation of LoRaWAN technology for real-time worker tracking in oil palm plantations in Sabah, Malaysia.</p>
+            </div>
+            
+            <div class="bg-gray-100 p-6 rounded-lg dark:bg-gray-600">
+              <h3 class="text-xl font-semibold mb-4 dark:text-white">Key Objectives</h3>
+              <ul class="list-disc pl-5 dark:text-gray-300">
+                <li>Assess worker tracking feasibility</li>
+                <li>Evaluate LoRaWAN technology performance</li>
+                <li>Improve plantation worker safety</li>
+              </ul>
+            </div>
+            
+            <div class="bg-gray-100 p-6 rounded-lg dark:bg-gray-600">
+              <h3 class="text-xl font-semibold mb-4 dark:text-white">Quick Links</h3>
+              <div class="space-y-2">
+                <a href="/pages/evaluation_plan.html" class="block text-secondary hover:underline dark:text-secondary-light">Evaluation Plan</a>
+                <a href="/pages/evaluation_procedure.html" class="block text-secondary hover:underline dark:text-secondary-light">Evaluation Procedure</a>
+                <a href="/pages/pre_site_visit_checklist.html" class="block text-secondary hover:underline dark:text-secondary-light">Pre-Site Visit Checklist</a>
+                <a href="/pages/project_cost_estimation.html" class="block text-secondary hover:underline dark:text-secondary-light">Project Cost Estimation</a>
+                <a href="/pages/project_implementation_timeline.html" class="block text-secondary hover:underline dark:text-secondary-light">Project Timeline</a>
+                <a href="/pages/evaluation_report.html" class="block text-secondary hover:underline dark:text-secondary-light">Evaluation Report</a>
+                <a href="/pages/evaluation_team.html" class="block text-secondary hover:underline dark:text-secondary-light">Evaluation Team</a>
+                <a href="/pages/map.html" class="block text-secondary hover:underline dark:text-secondary-light">Project Map</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 bg-blue-50 p-6 rounded-lg dark:bg-blue-900">
+            <h3 class="text-2xl font-bold mb-4 text-primary dark:text-white">Project Status</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <h4 class="font-semibold dark:text-white">Current Phase</h4>
+                <p class="dark:text-gray-300">Planning and Preparation</p>
+              </div>
+              <div>
+                <h4 class="font-semibold dark:text-white">Estimated Completion</h4>
+                <p class="dark:text-gray-300">7 weeks from project initiation</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="bg-primary text-white py-6 mt-8 dark:bg-gray-700">
+        <div class="container mx-auto px-4 text-center">
+          <p>&copy; 2023 LoRaWAN Worker Tracking Project. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+  </html>

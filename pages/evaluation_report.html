@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoRaWAN Worker Tracking System Evaluation Report</title>
+    <link href="/src/styles/main.css" rel="stylesheet">
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+  <body class="bg-gray-50 font-sans">
+    <header class="bg-primary text-white py-6">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">LoRaWAN Worker Tracking</h1>
+        <nav>
+          <ul class="flex space-x-4">
+            <li><a href="/" class="hover:text-gray-200">Home</a></li>
+            <li class="relative group">
+              <span class="cursor-pointer hover:text-gray-200">Documentation</span>
+              <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48">
+                <li><a href="/pages/evaluation_plan.html" class="block py-1 hover:bg-gray-100">Evaluation Plan</a></li>
+                <li><a href="/pages/evaluation_procedure.html" class="block py-1 hover:bg-gray-100">Evaluation Procedure</a></li>
+                <li><a href="/pages/pre_site_visit_checklist.html" class="block py-1 hover:bg-gray-100">Pre-Site Visit Checklist</a></li>
+              </ul>
+            </li>
+            <li class="relative group">
+              <span class="cursor-pointer hover:text-gray-200">Project Management</span>
+              <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48">
+                <li><a href="/pages/project_cost_estimation.html" class="block py-1 hover:bg-gray-100">Cost Estimation</a></li>
+                <li><a href="/pages/project_implementation_timeline.html" class="block py-1 hover:bg-gray-100">Implementation Timeline</a></li>
+              </ul>
+            </li>
+            <li class="relative group">
+              <span class="cursor-pointer hover:text-gray-200">Supplementary Docs</span>
+              <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48">
+                <li><a href="/pages/evaluation_checklist.html" class="block py-1 hover:bg-gray-100">Evaluation Checklist</a></li>
+                <li><a href="/pages/evaluation_team.html" class="block py-1 hover:bg-gray-100">Evaluation Team</a></li>
+                <li><a href="/pages/test_setup.html" class="block py-1 hover:bg-gray-100">Test Setup</a></li>
+              </ul>
+            </li>
+            <li class="relative group">
+              <span class="cursor-pointer hover:text-gray-200">Site Details</span>
+              <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48">
+                <li><a href="/pages/estate_areas.html" class="block py-1 hover:bg-gray-100">Estate Areas</a></li>
+                <li><a href="/pages/map.html" class="block py-1 hover:bg-gray-100">Project Map</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+    <main class="container mx-auto px-4 py-8">
+      <section class="bg-white shadow-md rounded-lg p-8">
+        <div class="flex justify-between items-center mb-4">
+          <h1 class="text-3xl font-bold text-primary">Evaluation Report</h1>
+          <a href="/" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Back to Home
+          </a>
+        </div>
+
+        <div class="bg-blue-50 p-6 rounded-lg mb-6">
+          <h2 class="text-2xl font-bold mb-4 text-primary flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            LoRaWAN Worker Tracking System Evaluation Report
+          </h2>
+          <p>Comprehensive assessment of LoRaWAN-based real-time worker tracking system for oil palm plantations</p>
+        </div>
+
+        <div class="mb-6">
+          <h4 class="text-xl font-semibold text-primary mb-2">Report Duration</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="startDate" class="block font-medium text-gray-700"><strong>Start Date:</strong></label>
+              <input type="date" id="startDate" class="mt-1 p-2 border rounded w-full">
+            </div>
+            <div>
+              <label for="endDate" class="block font-medium text-gray-700"><strong>End Date:</strong></label>
+              <input type="date" id="endDate" class="mt-1 p-2 border rounded w-full">
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h4 class="text-xl font-semibold text-primary mb-2">1. Evaluation Equipment</h4>
+          <p>Please provide details about the equipment used during the evaluation:</p>
+          <ul class="space-y-4">
+            <li class="bg-gray-100 p-4 rounded">
+              <strong>End-user devices:</strong> (e.g., Dragino Tracker D LoRaWAN GPS trackers)
+              <input type="text" class="mt-2 p-2 border rounded w-full" placeholder="Enter details here">
+            </li>
+            <li class="bg-gray-100 p-4 rounded">
+              <strong>Gateway:</strong> (e.g., Dragino Outdoor Gateway DL0S86)
+              <input type="text" class="mt-2 p-2 border rounded w-full" placeholder="Enter details here">
+            </li>
+            <li class="bg-gray-100 p-4 rounded">
+              <strong>Tools/Equipment:</strong>
+              <textarea class="mt-2 p-2 border rounded w-full" rows="3" placeholder="List other tools and equipment here"></textarea>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mb-6">
+          <h4 class="text-xl font-semibold text-primary mb-2">2. Test Location</h4>
+          <p>The evaluation was conducted in the selected oil palm estate. Please specify the selected estate:</p>
+          <div class="mt-2">
+            <label for="selectedEstate" class="block font-medium text-gray-700"><strong>Selected Estate:</strong></label>
+            <input type="text" id="selectedEstate" class="mt-1 p-2 border rounded w-full" placeholder="Enter the name of the selected estate here">
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h4 class="text-xl font-semibold text-primary mb-2">3. Evaluation Procedure</h4>
+          <div class="space-y-4">
+            <!-- Test 1: LoRaWAN Range and Coverage -->
+            <details class="bg-gray-100 rounded p-4">
+              <summary class="font-semibold cursor-pointer">Test 1: LoRaWAN Range and Coverage</summary>
+              <div class="mt-4">
+                <div class="overflow-x-auto">
+                  <table class="w-full border-collapse border border-gray-200">
+                    <thead class="bg-gray-200">
+                      <tr>
+                        <th class="border p-2">Test Number</th>
+                        <th class="border p-2">RSSI (dBm)</th>
+                        <th class="border p-2">SF</th>
+                        <th class="border p-2">Packet Loss (%)</th>
+                        <th class="border p-2">Latency (s)</th>
+                        <th class="border p-2">Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="border p-2">1.1</td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter RSSI"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter SF"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter s"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">1.2</td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter RSSI"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter SF"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter s"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">1.3</td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter RSSI"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter SF"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter s"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">1.4</td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter RSSI"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter SF"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter s"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">1.5</td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter RSSI"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter SF"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter s"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">1.6</td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter RSSI"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter SF"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter s"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">1.7</td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter RSSI"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter SF"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter s"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">1.8</td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter RSSI"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter SF"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter s"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">1.9</td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter RSSI"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter SF"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter s"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">1.10</td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter RSSI"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter SF"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter s"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="mt-3">
+                  <label for="remarksTest1" class="block font-medium text-gray-700">Additional Remarks or Observations:</label>
+                  <textarea id="remarksTest1" class="mt-1 p-2 border rounded w-full" rows="4" placeholder="Enter any additional remarks or observations here"></textarea>
+                </div>
+              </div>
+            </details>
+
+            <!-- Test 2: GPS Performance Under Canopy -->
+            <details class="bg-gray-100 rounded p-4">
+              <summary class="font-semibold cursor-pointer">Test 2: GPS Performance Under Canopy</summary>
+              <div class="mt-4">
+                <div class="overflow-x-auto">
+                  <table class="w-full border-collapse border border-gray-200">
+                    <thead class="bg-gray-200">
+                      <tr>
+                        <th class="border p-2">Test Number</th>
+                        <th class="border p-2">GPS Accuracy (m)</th>
+                        <th class="border p-2">Signal Quality</th>
+                        <th class="border p-2">Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="border p-2">2.1</td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter accuracy"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select quality</option>
+                            <option value="Good">Good</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Poor">Poor</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">2.2</td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter accuracy"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select quality</option>
+                            <option value="Good">Good</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Poor">Poor</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">2.3</td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter accuracy"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select quality</option>
+                            <option value="Good">Good</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Poor">Poor</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">2.4</td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter accuracy"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select quality</option>
+                            <option value="Good">Good</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Poor">Poor</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">2.5</td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter accuracy"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select quality</option>
+                            <option value="Good">Good</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Poor">Poor</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">2.6</td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter accuracy"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select quality</option>
+                            <option value="Good">Good</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Poor">Poor</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">2.7</td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter accuracy"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select quality</option>
+                            <option value="Good">Good</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Poor">Poor</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">2.8</td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter accuracy"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select quality</option>
+                            <option value="Good">Good</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Poor">Poor</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">2.9</td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter accuracy"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select quality</option>
+                            <option value="Good">Good</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Poor">Poor</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">2.10</td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter accuracy"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select quality</option>
+                            <option value="Good">Good</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Poor">Poor</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="mt-3">
+                  <label for="remarksTest2" class="block font-medium text-gray-700">Additional Remarks or Observations:</label>
+                  <textarea id="remarksTest2" class="mt-1 p-2 border rounded w-full" rows="4" placeholder="Enter any additional remarks or observations here"></textarea>
+                </div>
+              </div>
+            </details>
+
+            <!-- Test 3: Device Performance and Battery Life -->
+            <details class="bg-gray-100 rounded p-4">
+              <summary class="font-semibold cursor-pointer">Test 3: Device Performance and Battery Life</summary>
+              <div class="mt-4">
+                <div class="overflow-x-auto">
+                  <table class="w-full border-collapse border border-gray-200">
+                    <thead class="bg-gray-200">
+                      <tr>
+                        <th class="border p-2">Test Number</th>
+                        <th class="border p-2">Tracker ID</th>
+                        <th class="border p-2">Data Transmission Interval (min)</th>
+                        <th class="border p-2">Data Transmission Rate</th>
+                        <th class="border p-2">Packet Loss (%)</th>
+                        <th class="border p-2">Battery Life (hours)</th>
+                        <th class="border p-2">Functional Issues</th>
+                        <th class="border p-2">Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="border p-2">3.1</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter ID"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter interval"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter rate %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter loss %"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter hours"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter issues"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">3.2</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter ID"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter interval"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter rate %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter loss %"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter hours"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter issues"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">3.3</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter ID"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter interval"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter rate %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter loss %"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter hours"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter issues"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">3.4</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter ID"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter interval"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter rate %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter loss %"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter hours"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter issues"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">3.5</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter ID"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter interval"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter rate %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter loss %"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter hours"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter issues"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">3.6</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter ID"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter interval"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter rate %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter loss %"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter hours"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter issues"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">3.7</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter ID"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter interval"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter rate %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter loss %"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter hours"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter issues"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">3.8</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter ID"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter interval"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter rate %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter loss %"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter hours"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter issues"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">3.9</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter ID"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter interval"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter rate %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter loss %"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter hours"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter issues"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">3.10</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter ID"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter interval"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter rate %"></td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter loss %"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter hours"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter issues"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="mt-3">
+                  <label for="remarksTest3" class="block font-medium text-gray-700">Additional Remarks or Observations:</label>
+                  <textarea id="remarksTest3" class="mt-1 p-2 border rounded w-full" rows="4" placeholder="Enter any additional remarks or observations here"></textarea>
+                </div>
+              </div>
+            </details>
+
+            <!-- Test 4: Cellular Signal Strength -->
+            <details class="bg-gray-100 rounded p-4">
+              <summary class="font-semibold cursor-pointer">Test 4: Cellular Signal Strength</summary>
+              <div class="mt-4">
+                <div class="overflow-x-auto">
+                  <table class="w-full border-collapse border border-gray-200">
+                    <thead class="bg-gray-200">
+                      <tr>
+                        <th class="border p-2">Test Number</th>
+                        <th class="border p-2">Location</th>
+                        <th class="border p-2">Signal Strength (dBm)</th>
+                        <th class="border p-2">Network Type</th>
+                        <th class="border p-2">Data Speed (Mbps)</th>
+                        <th class="border p-2">Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="border p-2">4.1</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter location"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter dBm"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select type</option>
+                            <option value="4G">4G</option>
+                            <option value="3G">3G</option>
+                            <option value="2G">2G</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter Mbps"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">4.2</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter location"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter dBm"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select type</option>
+                            <option value="4G">4G</option>
+                            <option value="3G">3G</option>
+                            <option value="2G">2G</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter Mbps"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">4.3</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter location"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter dBm"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select type</option>
+                            <option value="4G">4G</option>
+                            <option value="3G">3G</option>
+                            <option value="2G">2G</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter Mbps"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">4.4</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter location"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter dBm"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select type</option>
+                            <option value="4G">4G</option>
+                            <option value="3G">3G</option>
+                            <option value="2G">2G</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter Mbps"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">4.5</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter location"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter dBm"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select type</option>
+                            <option value="4G">4G</option>
+                            <option value="3G">3G</option>
+                            <option value="2G">2G</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter Mbps"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">4.6</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter location"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter dBm"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select type</option>
+                            <option value="4G">4G</option>
+                            <option value="3G">3G</option>
+                            <option value="2G">2G</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter Mbps"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">4.7</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter location"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter dBm"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select type</option>
+                            <option value="4G">4G</option>
+                            <option value="3G">3G</option>
+                            <option value="2G">2G</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter Mbps"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">4.8</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter location"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter dBm"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select type</option>
+                            <option value="4G">4G</option>
+                            <option value="3G">3G</option>
+                            <option value="2G">2G</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter Mbps"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">4.9</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter location"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter dBm"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select type</option>
+                            <option value="4G">4G</option>
+                            <option value="3G">3G</option>
+                            <option value="2G">2G</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter Mbps"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                      <tr>
+                        <td class="border p-2">4.10</td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter location"></td>
+                        <td class="border p-2"><input type="number" class="w-full p-1 border rounded" placeholder="Enter dBm"></td>
+                        <td class="border p-2">
+                          <select class="w-full p-1 border rounded">
+                            <option value="">Select type</option>
+                            <option value="4G">4G</option>
+                            <option value="3G">3G</option>
+                            <option value="2G">2G</option>
+                          </select>
+                        </td>
+                        <td class="border p-2"><input type="number" step="0.1" class="w-full p-1 border rounded" placeholder="Enter Mbps"></td>
+                        <td class="border p-2"><input type="text" class="w-full p-1 border rounded" placeholder="Enter notes"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="mt-3">
+                  <label for="remarksTest4" class="block font-medium text-gray-700">Additional Remarks or Observations:</label>
+                  <textarea id="remarksTest4" class="mt-1 p-2 border rounded w-full" rows="4" placeholder="Enter any additional remarks or observations here"></textarea>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h4 class="text-xl font-semibold text-primary mb-2">4. Summary</h4>
+          <div class="mt-2">
+            <label for="summaryTextarea" class="block font-medium text-gray-700">Provide a concise summary of the evaluation objectives, methodology, and key findings:</label>
+            <textarea id="summaryTextarea" class="mt-1 p-2 border rounded w-full" rows="6" placeholder="Enter summary here..."></textarea>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h4 class="text-xl font-semibold text-primary mb-2">5. Conclusion</h4>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200">
+              <thead class="bg-gray-200">
+                <tr>
+                  <th class="border p-2">Evaluation Objective</th>
+                  <th class="border p-2">Findings</th>
+                  <th class="border p-2">Conclusion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2">Assess LoRaWAN range and coverage</td>
+                  <td class="border p-2"><textarea class="p-2 border rounded w-full" rows="3" placeholder="Enter findings here..."></textarea></td>
+                  <td class="border p-2"><textarea class="p-2 border rounded w-full" rows="3" placeholder="Enter conclusion here..."></textarea></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">Evaluate GPS performance under canopy</td>
+                  <td class="border p-2"><textarea class="p-2 border rounded w-full" rows="3" placeholder="Enter findings here..."></textarea></td>
+                  <td class="border p-2"><textarea class="p-2 border rounded w-full" rows="3" placeholder="Enter conclusion here..."></textarea></td>
+                </tr>
+                <tr>
+                  <td class="border p-2">Analyze device performance and battery life</td>
+                  <td class="border p-2"><textarea class="p-2 border rounded w-full" rows="3" placeholder="Enter findings here..."></textarea></td>
+                  <td class="border p-2"><textarea class="p-2 border rounded w-full" rows="3" placeholder="Enter conclusion here..."></textarea></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h4 class="text-xl font-semibold text-primary mb-2">6. Recommendation</h4>
+          <div class="mt-2">
+            <label for="recommendationTextarea" class="block font-medium text-gray-700">Provide recommendations for optimizing network deployment, selecting appropriate equipment, and mitigating potential challenges:</label>
+            <textarea id="recommendationTextarea" class="mt-1 p-2 border rounded w-full" rows="6" placeholder="Enter recommendations here..."></textarea>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h4 class="text-xl font-semibold text-primary mb-2">7. List of Evaluation Team</h4>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200">
+              <thead class="bg-gray-200">
+                <tr>
+                  <th class="border p-2">TEQ Armada Sdn Bhd</th>
+                  <th class="border p-2">Sabah Softwoods Berhad (SSB)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Name">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Position">
+                    <input type="text" class="p-2 border rounded w-full" placeholder="Contact Information">
+                  </td>
+                  <td class="border p-2">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Name">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Position">
+                    <input type="text" class="p-2 border rounded w-full" placeholder="Contact Information">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Name">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Position">
+                    <input type="text" class="p-2 border rounded w-full" placeholder="Contact Information">
+                  </td>
+                  <td class="border p-2">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Name">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Position">
+                    <input type="text" class="p-2 border rounded w-full" placeholder="Contact Information">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Name">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Position">
+                    <input type="text" class="p-2 border rounded w-full" placeholder="Contact Information">
+                  </td>
+                  <td class="border p-2">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Name">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Position">
+                    <input type="text" class="p-2 border rounded w-full" placeholder="Contact Information">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border p-2">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Name">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Position">
+                    <input type="text" class="p-2 border rounded w-full" placeholder="Contact Information">
+                  </td>
+                  <td class="border p-2">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Name">
+                    <input type="text" class="mb-2 p-2 border rounded w-full" placeholder="Position">
+                    <input type="text" class="p-2 border rounded w-full" placeholder="Contact Information">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h4 class="text-xl font-semibold text-primary mb-2">8. Supporting Evidence</h4>
+          <div class="bg-gray-100 rounded">
+            <div class="border-b border-gray-200">
+              <ul class="flex -mb-px" id="evidenceTabs" role="tablist">
+                <li class="mr-2" role="presentation">
+                  <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 focus:text-gray-600 focus:border-gray-300" id="documents-tab" data-bs-toggle="tab" data-bs-target="#documents" type="button" role="tab">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 0010.5 3h-1.5a3.375 3.375 0 00-3.375 3.375v1.5a1.125 1.125 0 01-1.125 1.125h-1.5A3.375 3.375 0 003 10.5v2.625m16.5 0v2.625a3.375 3.375 0 01-3.375 3.375h-1.5a1.125 1.125 0 01-1.125 1.125v1.5a3.375 3.375 0 01-3.375 3.375h-1.5a3.375 3.375 0 01-3.375-3.375v-1.5a1.125 1.125 0 01-1.125-1.125h-1.5A3.375 3.375 0 013 16.5v-2.625m16.5 0h-1.5m-13.5 0h-1.5" />
+                    </svg>
+                    Documents
+                  </button>
+                </li>
+                <li class="mr-2" role="presentation">
+                  <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 focus:text-gray-600 focus:border-gray-300" id="photos-tab" data-bs-toggle="tab" data-bs-target="#photos" type="button" role="tab">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.158 5.159m-1.5-1.5l1.5 1.5m-1.5-1.5l3.182-3.182m-3.182 3.182l-1.5 1.5m1.5 1.5l-1.5-1.5m1.5 1.5l-3.182 3.182m-1.5-1.5l1.5 1.5M3.75 12h16.5" />
+                    </svg>
+                    Photos
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="p-6">
+              <div class="tab-content" id="evidenceTabContent">
+                <!-- Documents Tab -->
+                <div class="tab-pane fade show active" id="documents" role="tabpanel">
+                  <div class="mb-3">
+                    <label for="documentUpload" class="block font-medium text-gray-700">Upload Supporting Documents</label>
+                    <input class="mt-1 p-2 border rounded w-full" type="file" id="documentUpload" multiple accept=".pdf,.doc,.docx,.txt,.csv,.xlsx">
+                    <small class="text-gray-500">Allowed file types: PDF, DOC, DOCX, TXT, CSV, XLSX (Max 16MB)</small>
+                  </div>
+                  <div id="documentPreviewContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Dynamically populated document previews will be added here -->
+                  </div>
+                </div>
+
+                <!-- Photos Tab -->
+                <div class="tab-pane fade" id="photos" role="tabpanel">
+                  <div class="mb-3">
+                    <label for="photoUpload" class="block font-medium text-gray-700">Upload Site Photos</label>
+                    <input class="mt-1 p-2 border rounded w-full" type="file" id="photoUpload" multiple accept="image/*">
+                    <small class="text-gray-500">Allowed file types: PNG, JPEG, GIF, BMP (Max 16MB)</small>
+                  </div>
+                  <div id="photoPreviewContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Dynamically populated photo previews will be added here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-6">
+          <button onclick="window.print()" class="bg-primary hover:bg-secondary text-white font-semibold py-2 px-4 rounded inline-flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523m2.512-2.278l-.531 2.101m-2.512 2.278l-1.5 1.5m1.5 1.5l-1.5-1.5m1.5 1.5l-3.182 3.182m-1.5-1.5l1.5 1.5" />
+            </svg>
+            Print Report
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-primary text-white py-6 mt-8">
+      <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2024 adyaakob Worker Tracking Project. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const evidenceTabs = document.querySelectorAll('#evidenceTabs button');
+        evidenceTabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            evidenceTabs.forEach(t => t.classList.remove('border-primary', 'text-primary'));
+            tab.classList.add('border-primary', 'text-primary');
+          });
+        });
+      });
+    </script>
+  </body>
+  </html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabah Malaysia Map | LoRaWAN Worker Tracking</title>
+    <link href="/src/styles/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.1.0/ol.css">
+    <script type="module" src="/src/js/main.js"></script>
+    <style>
+        .ol-control button {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .ol-control button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+  </head>
+  <body class="bg-gray-50 font-sans">
+    <header class="bg-primary text-white py-6">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">LoRaWAN Worker Tracking</h1>
+        <nav>
+          <ul class="flex space-x-4">
+            <li><a href="/" class="hover:text-gray-200">Home</a></li>
+            <li class="relative group">
+              <span class="cursor-pointer hover:text-gray-200">Documentation</span>
+              <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48">
+                <li><a href="/pages/evaluation_plan.html" class="block py-1 hover:bg-gray-100">Evaluation Plan</a></li>
+                <li><a href="/pages/evaluation_procedure.html" class="block py-1 hover:bg-gray-100">Evaluation Procedure</a></li>
+                <li><a href="/pages/pre_site_visit_checklist.html" class="block py-1 hover:bg-gray-100">Pre-Site Visit Checklist</a></li>
+              </ul>
+            </li>
+            <li class="relative group">
+              <span class="cursor-pointer hover:text-gray-200">Project Management</span>
+              <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48">
+                <li><a href="/pages/project_cost_estimation.html" class="block py-1 hover:bg-gray-100">Cost Estimation</a></li>
+                <li><a href="/pages/project_implementation_timeline.html" class="block py-1 hover:bg-gray-100">Implementation Timeline</a></li>
+              </ul>
+            </li>
+            <li class="relative group">
+              <span class="cursor-pointer hover:text-gray-200">Supplementary Docs</span>
+              <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48">
+                <li><a href="/pages/evaluation_checklist.html" class="block py-1 hover:bg-gray-100">Evaluation Checklist</a></li>
+                <li><a href="/pages/evaluation_team.html" class="block py-1 hover:bg-gray-100">Evaluation Team</a></li>
+              </ul>
+            </li>
+            <li class="relative group">
+              <span class="cursor-pointer hover:text-gray-200">Site Details</span>
+              <ul class="absolute hidden group-hover:block bg-white text-black shadow-lg rounded mt-2 p-2 w-48">
+                <li><a href="/pages/estate_areas.html" class="block py-1 hover:bg-gray-100">Estate Areas</a></li>
+                <li><a href="/pages/map.html" class="block py-1 hover:bg-gray-100">Project Map</a></li>
+              </ul>
+            </li>
+            <li><a href="/pages/evaluation_report.html" class="hover:text-gray-200">Evaluation Report</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+    <main class="container mx-auto px-4 py-8">
+      <section class="bg-white shadow-md rounded-lg p-8">
+        <div class="mb-4">
+          <a href="/" class="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark transition-colors">
+            ← Back to Home
+          </a>
+        </div>
+        <h2 class="text-3xl font-bold mb-6 text-primary">Project Map</h2>
+        <div class="flex justify-between items-center mb-4">
+          <a href="/" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Back to Home
+          </a>
+          <h1 class="text-3xl font-bold text-primary">Real-time Tracking Map</h1>
+        </div>
+
+        <div class="mb-4">
+          <div id="map" style="height: 600px;"></div>
+          
+          <div class="flex justify-center items-center mt-4 space-x-2">
+            <button id="standardViewBtn" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded">Standard View</button>
+            <button id="satelliteViewBtn" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded">Satellite View</button>
+          </div>
+          <div class="text-center text-gray-500 mt-2 text-sm">
+            Switch between standard map and satellite imagery to explore estate locations
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="text-2xl font-semibold mb-3 text-primary">Estate Locations</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-200">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border p-2">Estate Name</th>
+                  <th class="border p-2">Latitude</th>
+                  <th class="border p-2">Longitude</th>
+                  <th class="border p-2">Region</th>
+                  <th class="border p-2">Officer In-Charge</th>
+                  <th class="border p-2">Size</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.720694, 4.511972]" title="LoRaWAN range and signal strength in open areas. GPS accuracy with less canopy interference. Gateway placement for optimal coverage">Cenderamata Oil Palm Estate</a></td>
+                  <td class="border p-2">4° 30' 43.1" N</td>
+                  <td class="border p-2">117° 43' 14.5" E</td>
+                  <td class="border p-2">Brumas</td>
+                  <td class="border p-2">Cik Maria</td>
+                  <td class="border p-2">4,000 ha</td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.683333, 4.516667]" title="Impact of terrain and vegetation on LoRaWAN signal. GPS accuracy in challenging conditions. Gateway placement for optimal coverage">Banita Oil Palm Estate</a></td>
+                  <td class="border p-2">4° 31' 0.0" N</td>
+                  <td class="border p-2">117° 41' 0.0" E</td>
+                  <td class="border p-2">Kalabakan</td>
+                  <td class="border p-2">Encik Lim</td>
+                  <td class="border p-2">5,500 ha</td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.666667, 4.533333]" title="LoRaWAN performance in potentially humid conditions. GPS accuracy in different canopy densities. Gateway placement to avoid flood-prone areas">Sg Indit Oil Palm Estate</a></td>
+                  <td class="border p-2">4° 32' 0.0" N</td>
+                  <td class="border p-2">117° 40' 0.0" E</td>
+                  <td class="border p-2">Kalabakan</td>
+                  <td class="border p-2">Puan Aisyah</td>
+                  <td class="border p-2">3,000 ha</td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.75, 4.5]" title="LoRaWAN range and signal penetration through dense foliage. GPS accuracy under canopy. Cellular signal strength for gateway placement">Mawang Oil Palm Estate</a></td>
+                  <td class="border p-2">4°30'N</td>
+                  <td class="border p-2">117°45'E</td>
+                  <td class="border p-2">Brumas</td>
+                  <td class="border p-2">Encik Ahmad</td>
+                  <td class="border p-2">5,000 ha</td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.666667, 4.583333]" title="Impact of terrain on LoRaWAN signal propagation. GPS accuracy in different canopy densities. Potential for signal reflections near the river">Sg Tiagau Oil Palm Estate</a></td>
+                  <td class="border p-2">4°35'N</td>
+                  <td class="border p-2">117°40'E</td>
+                  <td class="border p-2">Brumas</td>
+                  <td class="border p-2">Puan Fatimah</td>
+                  <td class="border p-2">3,500 ha</td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.533333, 4.466667]" title="LoRaWAN range and potential for longer distances. GPS accuracy under tall canopies. Gateway placement for optimal coverage">Bukit Tuok Oil Palm Estate</a></td>
+                  <td class="border p-2">4°28'N</td>
+                  <td class="border p-2">117°32'E</td>
+                  <td class="border p-2">Kalabakan</td>
+                  <td class="border p-2">Encik Razak</td>
+                  <td class="border p-2">4,200 ha</td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.466667, 4.55]" title="LoRaWAN signal penetration through dense vegetation. GPS accuracy in challenging conditions. Gateway placement to overcome cellular limitations">Kumani Oil Palm Estate</a></td>
+                  <td class="border p-2">4°33'N</td>
+                  <td class="border p-2">117°28'E</td>
+                  <td class="border p-2">Kalabakan</td>
+                  <td class="border p-2">Cik Siti</td>
+                  <td class="border p-2">6,000 ha</td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.8, 4.633333]" title="LoRaWAN signal propagation around buildings. GPS accuracy near structures. Potential for multipath interference">Kapilit Oil Palm Estate</a></td>
+                  <td class="border p-2">4°38'N</td>
+                  <td class="border p-2">117°48'E</td>
+                  <td class="border p-2">Brumas</td>
+                  <td class="border p-2">Encik Johan</td>
+                  <td class="border p-2">4,800 ha</td>
+                </tr>
+                <tr>
+                  <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.7, 4.433333]" title="LoRaWAN performance in windy conditions. GPS accuracy under dense canopy. Gateway placement for stability and signal strength">Dumpas Oil Palm Estate</a></td>
+                  <td class="border p-2">4°26'N</td>
+                  <td class="border p-2">117°42'E</td>
+                  <td class="border p-2">Brumas</td>
+                  <td class="border p-2">Encik David</td>
+                  <td class="border p-2">3,800 ha</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-primary text-white py-6 mt-8">
+      <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2024 adyaakob Worker Tracking Project. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.1.0/dist/ol.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Coordinates for Sabah, Malaysia (centered)
+            const sabahCenter = [117.5, 4.5];
+
+            // Estate locations with names
+            const estateLocations = [
+                {
+                    name: 'Cenderamata Oil Palm Estate',
+                    coords: [117.720694, 4.511972],
+                    considerations: 'LoRaWAN range and signal strength in open areas. GPS accuracy with less canopy interference. Gateway placement for optimal coverage'
+                },
+                {
+                    name: 'Banita Oil Palm Estate',
+                    coords: [117.683333, 4.516667],
+                    considerations: 'Impact of terrain and vegetation on LoRaWAN signal. GPS accuracy in challenging conditions. Gateway placement for optimal coverage'
+                },
+                {
+                    name: 'Sg Indit Oil Palm Estate',
+                    coords: [117.666667, 4.533333],
+                    considerations: 'LoRaWAN performance in potentially humid conditions. GPS accuracy in different canopy densities. Gateway placement to avoid flood-prone areas'
+                },
+                {
+                    name: 'Mawang Oil Palm Estate',
+                    coords: [117.75, 4.5],
+                    considerations: 'LoRaWAN range and signal penetration through dense foliage. GPS accuracy under canopy. Cellular signal strength for gateway placement'
+                },
+                {
+                    name: 'Sg Tiagau Oil Palm Estate',
+                    coords: [117.666667, 4.583333],
+                    considerations: 'Impact of terrain on LoRaWAN signal propagation. GPS accuracy in different canopy densities. Potential for signal reflections near the river'
+                },
+                {
+                    name: 'Bukit Tuok Oil Palm Estate',
+                    coords: [117.533333, 4.466667],
+                    considerations: 'LoRaWAN range and potential for longer distances. GPS accuracy under tall canopies. Gateway placement for optimal coverage'
+                },
+                {
+                    name: 'Kumani Oil Palm Estate',
+                    coords: [117.466667, 4.55],
+                    considerations: 'LoRaWAN signal penetration through dense vegetation. GPS accuracy in challenging conditions. Gateway placement to overcome cellular limitations'
+                },
+                 {
+                    name: 'Kapilit Oil Palm Estate',
+                    coords: [117.8, 4.633333],
+                    considerations: 'LoRaWAN signal propagation around buildings. GPS accuracy near structures. Potential for multipath interference'
+                },
+                {
+                    name: 'Dumpas Oil Palm Estate',
+                    coords: [117.7, 4.433333],
+                    considerations: 'LoRaWAN performance in windy conditions. GPS accuracy under dense canopy. Gateway placement for stability and signal strength'
+                }
+            ];
+
+            // Initialize the map
+            const map = new ol.Map({
+                target: 'map',
+                layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                    })
+                ],
+                view: new ol.View({
+                    center: ol.proj.fromLonLat(sabahCenter),
+                    zoom: 10
+                })
+            });
+
+            // Create features for estate locations
+            const features = estateLocations.map(estate => {
+                return new ol.Feature({
+                    geometry: new ol.geom.Point(ol.proj.fromLonLat(estate.coords)),
+                    name: estate.name
+                });
+            });
+
+            // Create vector source and layer
+            const vectorSource = new ol.source.Vector({
+                features: features
+            });
+
+            const vectorLayer = new ol.layer.Vector({
+                source: vectorSource,
+                style: new ol.style.Style({
+                    image: new ol.style.Circle({
+                        radius: 8,
+                        fill: new ol.style.Fill({
+                            color: '#ff0000'
+                        }),
+                        stroke: new ol.style.Stroke({
+                            color: '#ffffff',
+                            width: 2
+                        })
+                    })
+                })
+            });
+
+            // Add the vector layer to the map
+            map.addLayer(vectorLayer);
+
+            // Add click handler for estate links
+            document.querySelectorAll('.estate-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const coords = JSON.parse(this.dataset.coords);
+                    map.getView().animate({
+                        center: ol.proj.fromLonLat(coords),
+                        zoom: 13,
+                        duration: 1000
+                    });
+                });
+            });
+
+            // Handle map type switching
+            const standardViewBtn = document.getElementById('standardViewBtn');
+            const satelliteViewBtn = document.getElementById('satelliteViewBtn');
+            
+            standardViewBtn.addEventListener('click', function() {
+                const layers = map.getLayers();
+                layers.removeAt(0);
+                layers.insertAt(0, new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                }));
+            });
+
+            satelliteViewBtn.addEventListener('click', function() {
+                const layers = map.getLayers();
+                layers.removeAt(0);
+                layers.insertAt(0, new ol.layer.Tile({
+                    source: new ol.source.XYZ({
+                        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+                        maxZoom: 19
+                    })
+                }));
+            });
+        });
+    </script>
+  </body>
+  </html>
