@@ -28,6 +28,8 @@ jobs:
       
       - name: Fix paths
         run: node fix_paths.js
+        env:
+          NODE_OPTIONS: --experimental-vm-modules
       
       - name: Run external reference update script
         run: |

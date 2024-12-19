@@ -1,10 +1,15 @@
-const fs = require('fs');
-const path = require('path');
+import { readFileSync, writeFileSync, readdirSync, statSync } from 'fs';
+import { join, extname } from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const basePath = '/lorawan_bolt';
 
 function updatePaths(filePath) {
-  let content = fs.readFileSync(filePath, 'utf8');
+  let content = readFileSync(filePath, 'utf8');
   
   // Update internal links
   content = content.replace(/href="\//g, `href="${basePath}/`);
@@ -20,24 +25,24 @@ function updatePaths(filePath) {
   // Don't modify external URLs
   content = content.replace(`${basePath}/http`, 'http');
   
-  fs.writeFileSync(filePath, content);
+  writeFileSync(filePath, content);
   console.log(`Updated paths in ${filePath}`);
 }
 
 function traverseDirectory(dir) {
-  const files = fs.readdirSync(dir);
+  const files = readdirSync(dir);
   
   files.forEach(file => {
-    const fullPath = path.join(dir, file);
-    const stat = fs.statSync(fullPath);
+    const fullPath = join(dir, file);
+    const stat = statSync(fullPath);
     
     if (stat.isDirectory()) {
       traverseDirectory(fullPath);
-    } else if (path.extname(file) === '.html') {
+    } else if (extname(file) === '.html') {
       updatePaths(fullPath);
     }
   });
 }
 
 // Start from the project root
-traverseDirectory(path.join(__dirname));
+traverseDirectory(join(__dirname));
