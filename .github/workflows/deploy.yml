@@ -16,17 +16,41 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
+      - name: Display Node and npm versions
+        run: |
+          node --version
+          npm --version
+      
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'
+      
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --prefer-offline --no-audit
+      
+      - name: List project files
+        run: ls -R
+      
       - name: Build
-        run: npx vite build
+        run: npx vite build --debug
+      
+      - name: Show dist contents
+        run: ls -l dist
+      
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
