@@ -16,57 +16,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-<<<<<<< HEAD
-=======
       
->>>>>>> f2f0cb6e1d3f8a5fc8ae86d3dc37955dddf436cf
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'
-<<<<<<< HEAD
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-=======
       
       - name: Install dependencies
         run: npm ci
       
-      - name: Fix paths and modules
-        run: |
-          node fix_paths.js
-          node fix_modules.js
-        env:
-          NODE_OPTIONS: --experimental-vm-modules
-      
-      - name: Run external reference update script
-        run: |
-          chmod +x update_external_references.sh
-          ./update_external_references.sh
-      
       - name: Build
-        run: npx vite build
-      
-      - name: List dist contents
-        run: |
-          ls -R dist
-          echo "Total files in dist:"
-          find dist -type f | wc -l
+        run: npm run build
       
       - name: Setup Pages
         uses: actions/configure-pages@v3
       
->>>>>>> f2f0cb6e1d3f8a5fc8ae86d3dc37955dddf436cf
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: './dist'
-
+          path: ./dist
+  
   deploy:
     environment:
       name: github-pages
