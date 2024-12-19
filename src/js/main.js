@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const storedTheme = localStorage.getItem('theme') || 'light';
     setTheme(storedTheme);
 
+    // Ensure light theme is always the default
+    body.classList.remove('dark');
+    body.classList.add('light');
+    themeToggle.textContent = 'Dark Theme';
+
     themeToggle.addEventListener('click', () => {
       const currentTheme = body.classList.contains('dark') ? 'light' : 'dark';
       setTheme(currentTheme);
