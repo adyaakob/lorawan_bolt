@@ -13,11 +13,10 @@ export default defineConfig({
         evaluation_report: 'pages/evaluation_report.html',
         evaluation_procedure: 'pages/evaluation_procedure.html',
         pre_site_visit_checklist: 'pages/pre_site_visit_checklist.html',
-        team_members: 'pages/team_members.html',
-        project_cost_estimation: 'pages/project_cost_estimation.html',
         project_implementation_timeline: 'pages/project_implementation_timeline.html',
-        test_setup: 'pages/test_setup.html',
-        map: 'pages/map.html'
+        project_cost_estimation: 'pages/project_cost_estimation.html',
+        map: 'pages/map.html',
+        test_setup: 'pages/test_setup.html'
       }
     }
   }
