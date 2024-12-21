@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoRaWAN Link Budget Analysis - Elevation Map and Line of Sight Analysis</title>
+    
+    <!-- Main CSS -->
+    <link href="../src/styles/main.css" rel="stylesheet">
+    
+    <!-- OpenLayers CSS (loaded before scripts) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css" type="text/css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        #map {
+            width: 100%;
+            height: 600px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #f0f0f0; /* Placeholder background */
+        }
+        .map-overlay {
+            position: absolute;
+            bottom: 40px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 4px;
+            z-index: 1;
+        }
+        .legend {
+            background-color: white;
+            border-radius: 3px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .ol-control button {
+            background-color: #1a4971 !important;
+        }
+        .ol-control button:hover {
+            background-color: #2d3748 !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-primary text-white py-6">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl font-bold">LoRaWAN Link Budget Analysis - Elevation Map and Line of Sight Analysis</h1>
+        </div>
+    </header>
+    
+    <main class="container mx-auto px-4 py-8">
+        <section class="bg-white shadow-md rounded-lg p-8">
+            <div class="mb-4">
+                <a href="../index.html" class="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark transition-colors">
+                    ← Back to Home
+                </a>
+            </div>
+            <div class="mb-4">
+                <h2 class="text-xl font-semibold mb-2">Terrain and Line of Sight Analysis</h2>
+                <p class="text-gray-600 mb-4">View elevation contours, analyze line of sight between different locations, and explore estate details.</p>
+                
+                <div class="flex space-x-4 mb-4">
+                    <button id="toggleTerrain" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark transition-colors">
+                        Toggle Terrain
+                    </button>
+                    <button id="measureDistance" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark transition-colors">
+                        Measure Distance
+                    </button>
+                    <button id="lineOfSightBtn" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark transition-colors" data-active="false">
+                        Line of Sight
+                    </button>
+                    <button id="clearMeasurementsBtn" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors">
+                        Clear Measurements
+                    </button>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div id="map" class="w-full h-[600px] rounded-lg"></div>
+                <div id="elevationProfile" class="hidden relative w-full bg-white p-6 rounded-lg shadow-lg z-10 mt-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-semibold">LoRaWAN Link Budget Analysis</h3>
+                        <button id="closeElevationProfile" class="text-gray-500 hover:text-gray-700">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Progress Bar -->
+                    <div id="elevationProfileProgress" class="w-full bg-gray-200 rounded-full h-2.5 mb-4 hidden">
+                        <div id="elevationProfileProgressBar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="bg-gray-50 p-4 rounded">
+                            <h4 class="font-semibold mb-2">LoRaWAN End Device</h4>
+                            <p class="text-sm" id="point1Coords">Coordinates: --</p>
+                            <p class="text-sm" id="point1Elevation">Elevation: -- m</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <h4 class="font-semibold mb-2">Gateway Mast</h4>
+                            <p class="text-sm" id="point2Coords">Coordinates: --</p>
+                            <p class="text-sm" id="point2Elevation">Elevation: -- m</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-gray-600" id="pathDistance">Distance: -- km</p>
+                    </div>
+                    <div id="elevationChart" class="w-full h-[300px] mb-4 bg-gray-50"></div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-4 rounded">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">LoRaWAN End Device Height (m)</label>
+                            <input type="number" id="blueAntennaHeight" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" value="1.5" min="0" step="0.1">
+                            <p class="text-xs text-gray-500 mt-1">Typical sensor/device height</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Gateway Mast Height (m)</label>
+                            <input type="number" id="greenAntennaHeight" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" value="12" min="0" step="0.5">
+                            <p class="text-xs text-gray-500 mt-1">Typical communication tower height</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-overlay">
+                    <div class="legend">
+                        <h4>Elevation (meters)</h4>
+                        <div id="elevation-scale"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold mb-3 text-primary">Estate Locations</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse border border-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="border p-2">Estate Name</th>
+                                <th class="border p-2">Latitude</th>
+                                <th class="border p-2">Longitude</th>
+                                <th class="border p-2">Region</th>
+                                <th class="border p-2">Officer In-Charge</th>
+                                <th class="border p-2">Size</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.7207, 4.5120]" title="LoRaWAN range and signal strength in open areas">Cenderamata Oil Palm Estate</a></td>
+                                <td class="border p-2">4° 30' 43.1" N</td>
+                                <td class="border p-2">117° 43' 14.5" E</td>
+                                <td class="border p-2">Brumas</td>
+                                <td class="border p-2">Cik Maria</td>
+                                <td class="border p-2">4,000 ha</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.7207, 4.5120]" title="LoRaWAN performance in windy conditions">Dumpas Oil Palm Estate</a></td>
+                                <td class="border p-2">4° 30' 43.1" N</td>
+                                <td class="border p-2">117° 43' 14.5" E</td>
+                                <td class="border p-2">Brumas</td>
+                                <td class="border p-2">Encik David</td>
+                                <td class="border p-2">3,800 ha</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.6978, 4.6606]" title="LoRaWAN performance in humid conditions">Sungai Indit Oil Palm Estate</a></td>
+                                <td class="border p-2">4° 39' 38.2" N</td>
+                                <td class="border p-2">117° 41' 52.1" E</td>
+                                <td class="border p-2">Kalabakan</td>
+                                <td class="border p-2">Puan Aisyah</td>
+                                <td class="border p-2">3,000 ha</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.5093, 4.5271]" title="Impact of terrain on LoRaWAN signal">Banita Oil Palm Estate</a></td>
+                                <td class="border p-2">4° 31' 37.6" N</td>
+                                <td class="border p-2">117° 30' 33.2" E</td>
+                                <td class="border p-2">Kalabakan</td>
+                                <td class="border p-2">Encik Lim</td>
+                                <td class="border p-2">5,500 ha</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.5093, 4.5271]" title="LoRaWAN signal propagation around buildings">Kapilit Oil Palm Estate</a></td>
+                                <td class="border p-2">4° 31' 37.6" N</td>
+                                <td class="border p-2">117° 30' 33.2" E</td>
+                                <td class="border p-2">Brumas</td>
+                                <td class="border p-2">Encik Johan</td>
+                                <td class="border p-2">4,800 ha</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.4921, 4.5322]" title="Impact of terrain on signal propagation">Sungai Tiagau Oil Palm Estate</a></td>
+                                <td class="border p-2">4° 31' 55.9" N</td>
+                                <td class="border p-2">117° 29' 31.6" E</td>
+                                <td class="border p-2">Brumas</td>
+                                <td class="border p-2">Puan Fatimah</td>
+                                <td class="border p-2">3,500 ha</td>
+                            </tr>
+                            <tr>
+                                <td class="border p-2"><a href="#" class="estate-link text-secondary hover:underline" data-coords="[117.4830, 4.5564]" title="LoRaWAN range and signal penetration">Mawang Oil Palm Estate</a></td>
+                                <td class="border p-2">4° 33' 23.0" N</td>
+                                <td class="border p-2">117° 28' 59.2" E</td>
+                                <td class="border p-2">Brumas</td>
+                                <td class="border p-2">Encik Ahmad</td>
+                                <td class="border p-2">5,000 ha</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- User Guide Section -->
+            <div class="mt-8 bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-2xl font-bold mb-4 text-primary">User Guide: LoRaWAN Link Budget Analysis</h3>
+                
+                <div class="space-y-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-semibold text-lg mb-2">1. Line of Sight (LOS) Measurement</h4>
+                        <ol class="list-decimal list-inside text-gray-700 space-y-2">
+                            <li>Click the "Line of Sight" button on the map.</li>
+                            <li>Click to place the first point (LoRaWAN End Device).</li>
+                            <li>Click to place the second point (Gateway Mast).</li>
+                            <li>The system will automatically calculate the link budget analysis.</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-semibold text-lg mb-2">2. Antenna Height Adjustment</h4>
+                        <p class="text-gray-700 mb-2">Customize antenna heights to match your specific deployment:</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>End Device Height: Typical range 1-2 meters</li>
+                            <li>Gateway Mast Height: Typical range 10-15 meters</li>
+                            <li>Adjust values to see how height impacts signal propagation</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-semibold text-lg mb-2">3. Elevation Profile Interpretation</h4>
+                        <p class="text-gray-700 mb-2">The elevation chart shows:</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Actual terrain elevation (green line)</li>
+                            <li>Line of Sight height (red line)</li>
+                            <li>Potential signal path obstructions</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-semibold text-lg mb-2">4. Key Metrics Displayed</h4>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Coordinates for both points</li>
+                            <li>Elevation at each point</li>
+                            <li>Total distance between points</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-blue-50 border-l-4 border-blue-500 p-4">
+                    <p class="text-blue-700">
+                        <strong>Tip:</strong> Use this tool to assess potential LoRaWAN network coverage, identify signal path challenges, and optimize device placement.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 adyaakob LoRaWAN Worker Tracking. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- OpenLayers JS -->
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    
+    <!-- Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    
+    <!-- Application JS -->
+    <script type="module" src="../src/js/elevation_map.js"></script>
+</body>
+</html>
